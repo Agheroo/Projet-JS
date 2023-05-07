@@ -14,7 +14,7 @@
 
 
 <body>
-    <nav>
+    <nav id = "nav">
         <div id="nav-left">
             <img id = "hamburger" src = "../public/img/hamburger.png" onclick = "openNav()">
             <img id = "logo" src = "../public/img/logo.png" >
@@ -26,19 +26,27 @@
             <a href = "#" class = "link">Ressources</a>
             <a href = "#" class = "link">Nous contacter</a>
         </div>
-        <ul id="nav-right">
-            <li><a href = "register.html">Inscription</a></li>
-            <li><a href = "login.html">Connexion</a></li>
-            <img id = "log" src = "../public/img/log.png">
-        </ul>
+        <div id="nav-right">
+            <a id = "register" href = "#">Inscription</a>                        <!-- Redirect to login and there will be a small link to register -->
+            <a id = "login" href = "#">Connexion</a>                             <!-- Redirect to login and there will be a small link to register -->
+            <a href = "#"><img id = "log" src = "../public/img/log.png"></a> <!-- Redirect to login / register page if not registered -->
+        </div>
     </nav>
-    
-    <div class = "wrapper">
+    <div id = "main" class = "wrapper">
         <div id = "welcome" class = "wrapper">
-            <div id = "logo-welcome">
-                <img src = "../public/img/logo.png" id = "logo-main">
-                <h1>Bienvenue sur notre plateforme</h1>
-            </div>
+            <img src = "../public/img/logo.png" id = "logo-main">
+            <span class = "line" id = "welcome-line"></span>
+            <h1>Bienvenue sur notre plateforme</h1>
+            <span class = "line" id = "welcome-line"></span>
+            <h2 class = "welcome-text1">Consultez et suivez l'évolution de votre condition physique à tout instant.</h2>
+            <p class = "welcome-text2">Faites vos premiers pas et laissez-vous guider par notre intelligence artificielle qui proposera un programme adapté après une première évaluation.</p>
+
+            <a href = "#" id = "get-started">Commençons !</a> <!-- Redirect to login / register page -->
+        </div>
+        <span class = "line"></span>
+        <div id = "preview1" class = wrapper>
+            <img src = "../public/img/preview1.png">
+            <h2>Un service personnalisé et adapatatif à vos besoins</h2>
         </div>
     </div>
 
