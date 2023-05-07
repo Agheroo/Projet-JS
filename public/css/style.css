@@ -148,11 +148,13 @@ h1{
 }
 #preview1, #preview1>*{
     color:var(--light-text-color);
-    background:var(--bg-dark-color);
+    background:var(--bg-med-color);
+    height:30vh;
 }
 #preview2, #preview2>*{
-    color:var(--dark-text-color);
-    background-color: var(--main-bg-color);
+    color:var(--light-text-color);
+    background-color: var(--bg-dark-color);
+    height:30vh;
 }
 
 @keyframes welcome-line{
