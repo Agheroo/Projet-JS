@@ -1,5 +1,6 @@
 :root{
     --main-bg-color:#F4EDEA;
+    --main-bg-color-bis:rgb(200, 228, 217);
     --bg-dark-color:#1a344e;
     --bg-med-color:#0F4C5C;
     --nav-bg-color:#C5D8D1;
@@ -8,6 +9,8 @@
 
     --light-text-color:#fff4e0;
     --dark-text-color:#10273d;
+    --highlight-green:#3f8f20;
+    --highlight-blue:#237ea8;;
     --button-color:#80b8b5;
     --button-color-dark:#679daa;
 }
@@ -18,6 +21,7 @@
     margin:0;
     background:var(--main-bg-color);
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
@@ -29,11 +33,12 @@ li{
 }
 nav{
     height:7vh;
-    width:100%;
+    width:auto;
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-between;
+    padding: 0 1vh 0 1vh;
 
     background-color: var(--nav-bg-color);
 }
@@ -50,7 +55,7 @@ nav{
     width:5vh;
     height:5vh;
 
-    background: var(--nav-bg-color);
+    background: var(--main-bg-color);
 }
 #logo{
     width:20vh;
@@ -69,7 +74,6 @@ nav{
     width:auto;
 
     max-height: inherit;
-    align-items: center;
 }
 #nav-right >*, #nav-center>*{
     font-size:2vh;
@@ -92,27 +96,31 @@ nav{
 }
 #welcome >*{
     margin: 1vh 0 1vh 0;
+    overflow-y: hidden;
 }
 #logo-main{
     max-height: 20vh;
     max-width: 20vh;
 }
 h1{
+    width:100%; 
     text-align: center;
     text-decoration: underline;
     font-size:4.5vh;
     padding:2vh 0 2vh 0;
     position: relative;
     
-
+    background-color: #ecdccd;
     animation:welcome-text1 1s forwards;
 }
 .welcome-text1{
+    padding:1vh;
     filter:opacity(0);
     position:relative;
     animation: welcome-text2 1s 2s forwards;
 }
 .welcome-text2{
+    padding:1vh;
     filter:opacity(0);
     position:relative;
     animation: welcome-text2 1s 3s forwards;
@@ -149,17 +157,31 @@ h1{
 #preview1, #preview1>*{
     color:var(--light-text-color);
     background:var(--bg-med-color);
-    height:30vh;
+}
+#preview1{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    height:40vh;
 }
 #preview2, #preview2>*{
     color:var(--light-text-color);
     background-color: var(--bg-dark-color);
-    height:30vh;
+}
+.underlined{
+    text-decoration: underline;
+}
+.highlight-green{
+    color:var(--highlight-green);
+}
+.highlight-blue{
+    color:var(--highlight-blue);
 }
 
 @keyframes welcome-line{
     from{width: 0;}
-    to{width: 80%;}
+    to{width: 90%;}
 }
 @keyframes welcome-text1{
     from{
@@ -181,11 +203,94 @@ h1{
         filter:opacity(1);
     }
 }
+
+/**************************************************************************************************/
+/* LOGIN PAGE */
+#login-main{
+    height:50vh;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#register-main{
+    height:80vh;
+}
+#login-main *{
+    overflow-y:hidden ;
+}
+#login-wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    width:90%;
+    padding:2vh;
+}
+.center-right{
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+}
+.center-right a{
+    color:var(--dark-text-color);
+    font-size: 2vh;
+    background: none;
+}
+.row-input input{
+    padding:0.7vh 0 0.7vh 0;
+}
+#login-form .row-input {
+    margin-bottom:2vh;
+}
+#login-form >*:not(.button){
+    background:var(--main-bg-color-bis);
+}
+.row-input{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    width:100%;
+}
+#eye{
+    width:7%;
+    height:inherit;
+    padding:0.5vh;
+    border-radius: 3vh;
+    position: absolute;
+    left:80%;
+}
+#see-password{
+    position:relative;
+    top:0vh;
+    right:1vh;
+}
+.button{
+    margin: 2vh 0 2vh 0;
+    padding:1.5vh 3vh;
+    border-radius:3vh;
+    background:var(--button-color);
+    transition: 0.1s
+}
+.button:hover{
+    cursor: pointer;
+    background:var(--button-color-dark);
+}
+.button:active{
+    transform: scale(0.95);
+}
+#login-form{
+    background-color: var(--main-bg-color-bis);
+    padding:2vh 0 2vh 0;
+    margin: 1vh 0 1vh 0;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border:solid 1px var(--button-color);
+    border-radius: 2vh;
+}
+
 @media only screen and (max-width: 1000px){
-    nav{
-        top:-7px;
-        justify-content:space-between;
-    }
     #nav-center{
         width:0;
         flex-direction: column;
@@ -195,6 +300,7 @@ h1{
         overflow-x:hidden;
         z-index: 10;
         top:0;
+        left:-1vh;
         background: var(--nav-appear-color);
 
         transition: width 0.4s;
@@ -216,13 +322,20 @@ h1{
     }
     #nav-right{
         width: auto;
+        margin:0 1vh 0 1vh 0 ;
+    }
+    #nav-right a:not(#login,#register){
+        display:flex;
+        align-items: center;
+        justify-content: center;
     }
     #hamburger, #log{
-        background: var(--nav-bg-color);
+        background: var(--button-color);
         height:4vh;
         width:4vh;
         display:block;
         padding:1vh;
+        border-radius: 1em;
     }
     #cross{
         background: var(--nav-appear-color);

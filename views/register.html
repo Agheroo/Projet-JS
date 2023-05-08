@@ -27,26 +27,34 @@
             <a href = "#" class = "link">Contact</a>
         </div>
         <div id="nav-right">
-            <a id = "register" href = "register.html">Inscription</a>                        <!-- Redirect to login and there will be a small link to register -->
+            <a id = "register" href = "#">Inscription</a>                        <!-- Redirect to login and there will be a small link to register -->
             <a id = "login" href = "login.html">Connexion</a>                             <!-- Redirect to login and there will be a small link to register -->
             <a href = "login.html"><img id = "log" src = "../public/img/log.png"></a> <!-- Redirect to login / register page if not registered -->
         </div>
     </nav>
-    <div id = "main" class = "wrapper">
-        <div id = "welcome" class = "wrapper">
-            <img src = "../public/img/logo.png" id = "logo-main">
-            <span class = "line" id = "welcome-line"></span>
-            <h1>Bienvenue sur notre plateforme</h1>
-            <span class = "line" id = "welcome-line"></span>
-            <h2 class = "welcome-text1"><span class = "highlight-green">Consultez</span> et <span class = "highlight-green">suivez</span> l'évolution de votre condition physique à <span class = "highlight-green underlined">tout instant.</span></h2>
-            <p class = "welcome-text2">Faites vos premiers pas et laissez-vous guider par notre <span class= "highlight-blue">intelligence artificielle</span> qui proposera un <span class = "highlight-blue underlined">programme adapté</span> après une première évaluation.</p>
-
-            <a href = "login.html" id = "get-started">Commençons !</a> <!-- Redirect to login / register page -->
-        </div>
-        <span class = "line"></span>
-        <div id = "preview1" class = wrapper>
-            <img src = "../public/img/preview1.png">
-            <h2>Un service personnalisé et adapatatif à vos besoins</h2>
+    <div id = "register-main" class = "wrapper">
+        <h1>Inscription</h1>
+        <div id = "login-wrapper">
+            <form id = "login-form">
+                <label for = "username">Nom *</label>
+                <div class = "row-input">
+                    <input id = "username" type = "text">
+                </div> 
+                <label for = "email">Email *</label>
+                <div class = "row-input">
+                    <input id = "email" type = "email">
+                </div>                
+                <label for = "password">Mot de passe *</label>
+                <div class = "row-input">
+                    <input id = "password" type = "password"><img id = "eye" class = "button" src = "../public/img/closed-eye.png" onclick = "showWrittenPassword()">
+                </div>
+                <label for = "repeat-password">Répétez le mot de passe *</label>
+                <div class = "row-input">
+                    <input id = "repeat-password" type = "password">
+                </div>
+                <div class = "button" onclick = "checkAddUser()">S'inscrire</div>
+            </form>
+            <div class = "center-right"><a href = "login.html">Vous avez déjà un compte ?</a></div>
         </div>
     </div>
 

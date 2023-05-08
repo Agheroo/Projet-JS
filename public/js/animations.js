@@ -1,20 +1,13 @@
-var lastScrollTop = 0;
-var is_nav_open = false;
-/*window.addEventListener("scroll", function(){
-    var nav = document.getElementById("nav");
-    var st= window.pageYOffset || document.documentElement.scrollTop;
-    if(st > lastScrollTop && is_nav_open == false){ //downscroll
-        nav.style.filter = "blur(2px)";
-        nav.style.transform = "translateY(-110%)";
+const showWrittenPassword = () =>{
+    if(document.getElementById("password").type == "password"){
+        document.getElementById("password").type = "text";
+        document.getElementById("eye").src = "../public/img/eye.png";
     }
-    if(st <= lastScrollTop && is_nav_open == false){ //upscroll
-        nav.style.filter = "blur(0)";
-        nav.style.transform = "translateY(0%)";
+    else{
+        document.getElementById("password").type = "password";
+        document.getElementById("eye").src = "../public/img/closed-eye.png";
     }
-
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-}, false);*/
-
+}
 const openNav = () => {
     is_nav_open = true;
     document.getElementById("nav-center").style.width = "50%";
