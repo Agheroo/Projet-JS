@@ -5,7 +5,6 @@ const checkAddUser = () =>{
     let confirm_pass = document.getElementById("repeat-password").value;
     let inputs = ["username","email","password","repeat-password"];
     for(let input in inputs){
-        console.log(inputs[input]);
         if(document.getElementById(inputs[input]).value == ""){
             document.getElementById(inputs[input]).style.border = "solid 1px red";
             alert("Veuillez rentrer des informations valides");
