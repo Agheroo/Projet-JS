@@ -10,7 +10,7 @@ const showWrittenPassword = () =>{
 }
 const openNav = () => {
     is_nav_open = true;
-    document.getElementById("nav-center").style.width = "50%";
+    document.getElementById("nav-center").style.width = "60%";
     document.getElementById("cross").style.display = "block";
     document.getElementById("hamburger").style.display = "none";
 }

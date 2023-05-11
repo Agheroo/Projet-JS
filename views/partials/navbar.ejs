@@ -14,10 +14,7 @@
     <div id="nav-right">
         <a id = "register" href = "/register">Inscription</a>                        <!-- Redirect to login and there will be a small link to register -->
         <a id = "login" href = "/login">Connexion</a>                             <!-- Redirect to login and there will be a small link to register -->
-        <% if(utilisateur){ %>
         <a href = "/login"><img id = "log" src = "img/log.png"></a> <!-- Redirect to Profile page if connected -->
-        <% } else { %>
         <a href = "/register"><img id = "log" src = "img/log.png"></a> <!-- Redirect to login / register page if not registered -->
-        <% } %>
     </div>
 </nav>
