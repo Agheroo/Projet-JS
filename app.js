@@ -38,22 +38,22 @@ app.use((req, res, next) => {
   next();
 });
 
-app.engine("html", ejs.__express);
+app.engine("ejs", ejs.__express);
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.set("view engine", "html");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
   const { utilisateur } = res.locals;
   console.log(utilisateurs);
-  res.render("index", { cours, utilisateur });
+  res.render("pages/index", { cours, utilisateur });
 });
-app.get("/connexion", (req, res) => {
-  res.render("connexion");
+app.get("/login", (req, res) => {
+  res.render("pages/login");
 });
-app.post("/connexion", async (req, res) => {
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if (email && password) {
@@ -75,12 +75,12 @@ app.post("/connexion", async (req, res) => {
       console.log("Utilisateur n'existe pas");
     }
   }
-  res.redirect("/connexion");
+  res.redirect("/login");
 });
-app.get("/inscription", (req, res) => {
-  res.render("inscription");
+app.get("/register", (req, res) => {
+  res.render("pages/register");
 });
-app.post("/inscription", async (req, res) => {
+app.post("/register", async (req, res) => {
   const { nom, email, password } = req.body;
   console.log(nom, email, password);
   if (nom && email && password) {
@@ -102,12 +102,12 @@ app.post("/inscription", async (req, res) => {
       return res.redirect("/");
     }
   }
-  res.redirect("/inscription");
+  res.redirect("/register");
 });
 
 
 
-app.post("/deconnexion", (req, res) => {
+app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.redirect("/");

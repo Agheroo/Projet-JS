@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <link href="../public/css/style.css" rel="stylesheet">
+    <title>Projet JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <nav id = "nav">
+        <div id="nav-left">
+            <img id = "hamburger" src = "../public/img/hamburger.png" onclick = "openNav()">
+            <img id = "logo" src = "../public/img/logo.png" >
+        </div>
+        <div id = "nav-center">
+            <a><img src = "../public/img/cross.png" id = "cross" onclick = "closeNav()"></a>
+            <a href = "index.html" class = "link">Accueil</a>
+            <a href = "#" class = "link">Evaluation</a>
+            <a href = "#" class = "link">Ressources</a>
+            <a href = "#" class = "link">Contact</a>
+        </div>
+        <div id="nav-right">
+            <a id = "register" href = "register.html">Inscription</a>                        <!-- Redirect to login and there will be a small link to register -->
+            <a id = "login" href = "login.html">Connexion</a>                             <!-- Redirect to login and there will be a small link to register -->
+            <a href = "login.html"><img id = "log" src = "../public/img/log.png"></a> <!-- Redirect to login / register page if not registered -->
+        </div>
+    </nav>
+    <div id = "login-main" class = "wrapper">
+        <h1>Connexion</h1>
+        <div id = "login-wrapper">
+            <form id = "login-form">
+                <label for = "email">Email</label>
+                <div class = "row-input">
+                    <input id = "email" type = "email">
+                </div>                
+                <label for = "password">Mot de passe</label>
+                <div class = "row-input">
+                    <input id = "password" type = "password"><img id = "eye" class = "button" src = "../public/img/closed-eye.png" onclick = "showWrittenPassword()">
+                </div>
+                <div class = "button" onclick = "checkUserConnect()">Se connecter</div> <!-- Function to link with backend -->
+            </form>
+            <div class = "center-right"><a href = "register.html">Pas de compte ?</a></div>
+        </div>
+    </div>
+
+
+    <script src = "../public/js/animations.js"></script>
+    <script src = "../public/js/connect.js"></script>
+</body>
+</html>
