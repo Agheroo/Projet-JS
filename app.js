@@ -48,7 +48,9 @@ app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   const { utilisateur } = res.locals;
   console.log(utilisateurs);
-  res.render("pages/index", { cours, utilisateur });
+  res.render("pages/index", {
+    cours, 
+    utilisateur:utilisateur });
 });
 app.get("/login", (req, res) => {
   res.render("pages/login");
