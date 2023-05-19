@@ -26,11 +26,18 @@ app.use(
     },
   })
 );
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.engine("html", ejs.__express);
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.set("view engine", "html");
+app.set("views", path.join(__dirname, "views"));
+
 app.use((req, res, next) => {
-  console.log(res.session);
   const { idUtilisateur } = req.session;
   if (idUtilisateur) {
     res.locals.utilisateur = utilisateurs.find(
@@ -40,16 +47,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.engine("html", ejs.__express);
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.set("view engine", "html");
-app.set("views", path.join(__dirname, "views"));
-
 app.get("/", (req, res) => {
+  console.log(utilisateurs);
   const { utilisateur } = res.locals;
-  // console.log(utilisateurs);
   res.render("index", { utilisateur });
 });
 
@@ -61,13 +61,12 @@ app.post("/connexion", async (req, res) => {
 
   if (email && password) {
     const utilisateur = utilisateurs
-      .flat()
       .find((utilisateur) => utilisateur.email === email);
     if (utilisateur) {
-      const validPassWord = (password == utilisateur.password);
+      const validPassWord = password === utilisateur.password; //attention triple egale
       if (validPassWord) {
         req.session.idUtilisateur = utilisateur.id;
-        return res.redirect("/");
+        return res.render("index", {utilisateur});
       } else {
         console.log("Mot de passe incorrect");
       }
@@ -92,11 +91,11 @@ app.post("/inscription", async (req, res) => {
         id: utilisateurs.length + 1,
         nom,
         email,
-        password,
+        password
       };
       data.add_user(nouvelUtilisateur);
       req.session.idUtilisateur = nouvelUtilisateur.id;
-      return res.redirect("/");
+      return res.render("index", {utilisateur : nouvelUtilisateur});
     }
     else {
       console.log("Email déjà utilisé");
