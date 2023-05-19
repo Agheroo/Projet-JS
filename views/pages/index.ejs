@@ -10,23 +10,31 @@
     <%-include("../partials/navbar"); %>
     <div id = "main" class = "wrapper">
         <div id = "welcome" class = "wrapper">
-            <img src = "img/logo.png" id = "logo-main">
+            <div class = "parent-image" id = "preview-parent0">
+                <div class = "main-page-image" id = "main-img1"></div>
+            </div>
+            <h1>Bienvenue</h1>
             <span class = "line" id = "welcome-line"></span>
-            <h1>Bienvenue sur notre plateforme</h1>
-            <span class = "line" id = "welcome-line"></span>
-            <h2 class = "welcome-text1"><span class = "highlight-green">Consultez</span> et <span class = "highlight-green">suivez</span> l'évolution de votre condition physique à <span class = "highlight-green underlined">tout instant.</span></h2>
+            <h2 class = "welcome-text1"><span class = "highlight-yellow">Consultez</span> et <span class = "highlight-yellow">suivez</span> l'évolution de votre condition physique à <span class = "highlight-orange underlined">tout instant.</span></h2>
             <p class = "welcome-text2">Faites vos premiers pas et laissez-vous guider par notre <span class= "highlight-blue">intelligence artificielle</span> qui proposera un <span class = "highlight-blue underlined">programme adapté</span> après une première évaluation.</p>
 
-            <a href = "/login" id = "get-started">Commençons !</a> <!-- Redirect to login / register page -->
+            <a href = "/register" id = "get-started" class = "button-dark">Commençons !</a> <!-- Redirect to login / register page -->
         </div>
         <span class = "line"></span>
         <div id = "preview1" class = wrapper>
-            <img src = "img/preview1.png">
-            <h2>Un service personnalisé et adapatatif à vos besoins</h2>
+            <div class = "parent-image" id = "preview-parent1">
+                <div class = "main-page-image" id = "main-img2"></div>    
+            </div>
+            <h2 id = "preview-text1">Un service <span class = "highlight-yellow">adapatatif</span> à vos besoins</h2>
+        </div>
+        <div id = "preview2" class = wrapper>
+            <h2 id = "preview-text2">Vous voulez plus d'informations ? Renseignez-vous sur notre application !</h2>
+            <a href = "/informations" class = "button-dark">Informations</a>
         </div>
     </div>
 
-
+    <%-include("../partials/footer"); %>
     <script src = "js/animations.js"></script>
+    <script src = "js/cookieAPI.js"></script>
 </body>
 </html>

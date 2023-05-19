@@ -108,7 +108,33 @@ app.post("/register", async (req, res) => {
 });
 
 
+/*  Work in progress (bonus if we can do it) */
+app.get("/informations", (req, res) => {
+  res.render("pages/informations");
+});
+app.get("/contact",(req,res) => {
+  res.render("pages/contact");
+});
+/***************************************** */
 
+
+/*When user is connected */
+app.get("/profile" , (req,res) =>{
+  res.render("pages/profile");
+});
+app.get("/sumup" ,(req,res) =>{
+  res.render("pages/sumup");
+});
+app.get("/results" ,(req,res) =>{
+  res.render("pages/results");
+});
+app.get("/goals" ,(req,res) =>{
+  res.render("pages/goals");
+});
+
+app.get("/logout",(req,res)=>{
+  res.render("pages/index");
+});
 app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {

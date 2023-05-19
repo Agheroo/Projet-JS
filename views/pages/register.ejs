@@ -22,13 +22,13 @@
                 </div>                
                 <label for = "password">Mot de passe *</label>
                 <div class = "row-input">
-                    <input id = "password" type = "password"><img id = "eye" class = "button" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
+                    <input id = "password" type = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
                 </div>
                 <label for = "repeat-password">Répétez le mot de passe *</label>
                 <div class = "row-input">
                     <input id = "repeat-password" type = "password">
                 </div>
-                <div class = "button" onclick = "checkAddUser()">S'inscrire</div> <!-- Function to link with backend -->
+                <div class = "button-yellow" onclick = "checkAddUser()">S'inscrire</div> <!-- Function to link with backend -->
             </form>
             <div class = "center-right"><a href = "/login">Vous avez déjà un compte ?</a></div>
         </div>
@@ -37,5 +37,6 @@
 
     <script src = "js/animations.js"></script>
     <script src = "js/register.js"></script>
+    <script src = "js/cookieAPI.js"></script>
 </body>
 </html>
