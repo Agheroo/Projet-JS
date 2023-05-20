@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <%-include("../partials/head.ejs"); %>
+</head>
+
+<body>
+    <%if(utilisateur){%>
+        <%-include("../partials/navbar-connected.ejs"); %>
+    <%}else {%>
+        <%-include("../partials/navbar.ejs"); %>
+    <%}%>
+    <h1>Désolé, la page est en construction !</h1>
+
+    <script src ="js/animations.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <%-include("../partials/head.ejs"); %>
+</head>
+
+
+<body>
+    <%if(!utilisateur){%>
+        <%-include("../partials/navbar.ejs"); %>
+    <%}else{%>
+        <%-include("../partials/navbar-connected.ejs"); %>
+    <%}%>
+    <div id = "register-main" class = "wrapper">
+        <h1>Inscription</h1>
+        <div id = "login-wrapper">
+            <form id = "login-form" method = "post" action = "/register">
+                <label for = "username">Nom *</label>
+                <div class = "row-input">
+                    <input id = "username" type = "text" name = "nom">
+                </div> 
+                <label for = "email">Email *</label>
+                <div class = "row-input">
+                    <input id = "email" type = "email" name = "email">
+                </div>                
+                <label for = "password">Mot de passe *</label>
+                <div class = "row-input">
+                    <input id = "password" type = "password" name = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
+                </div>
+                <label for = "repeat-password">Répétez le mot de passe *</label>
+                <div class = "row-input">
+                    <input id = "repeat-password" type = "password">
+                </div>
+                <button class = "button-yellow" onclick = "checkAddUser()" type = "submit">S'inscrire</button> <!-- Function to link with backend -->
+            </form>
+            <div class = "center-right"><a href = "/login">Vous avez déjà un compte ?</a></div>
+        </div>
+    </div>
+
+
+    <script src = "js/animations.js"></script>
+    <script src = "js/register.js"></script>
+</body>
+</html>
