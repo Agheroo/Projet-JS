@@ -7,10 +7,17 @@
 
 
 <body>
-    <%if(!utilisateur){%>
+    <%if(utilisateur){%>
+        <%if(utilisateur.testDone){%>
+            <%-include("../partials/navbar-tested.ejs"); %>
+        <%}%>
+        <%if(!utilisateur.testDone){%>
+            <%-include("../partials/navbar-nottested.ejs"); %>
+        <%}%>
+        
+    <%}%>
+    <%if(!utilisateur) {%>
         <%-include("../partials/navbar.ejs"); %>
-    <%}else{%>
-        <%-include("../partials/navbar-connected.ejs"); %>
     <%}%>
     <div id = "register-main" class = "wrapper">
         <h1>Inscription</h1>
@@ -29,9 +36,6 @@
                     <input id = "password" type = "password" name = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
                 </div>
                 <label for = "repeat-password">Répétez le mot de passe *</label>
-                <div class = "row-input">
-                    <input id = "repeat-password" type = "password">
-                </div>
                 <button class = "button-yellow" onclick = "checkAddUser()" type = "submit">S'inscrire</button> <!-- Function to link with backend -->
             </form>
             <div class = "center-right"><a href = "/login">Vous avez déjà un compte ?</a></div>

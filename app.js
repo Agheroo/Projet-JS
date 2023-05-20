@@ -6,12 +6,11 @@ const fs = require("fs");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const data = require("./data/data");
-
+const utilisateurs = data.get_all_users();
 require("dotenv").config();
 
 const app = express();
 const IN_PRODUCTION = process.env.NODE_ENV === "production";
-const utilisateurs = data.get_all_users();
 
 app.use(
   session({
@@ -30,11 +29,11 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.engine("html", ejs.__express);
+app.engine("ejs", ejs.__express);
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.set("view engine", "html");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use((req, res, next) => {
@@ -48,17 +47,18 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  console.log(utilisateurs);
   const { utilisateur } = res.locals;
   res.render("pages/index", { utilisateur });
 });
 
-app.get("/connexion", (req, res) => {
-  res.render("connexion");
+app.get("/login", (req, res) => {
+  const { utilisateur } = res.locals;
+  res.render("pages/login",{utilisateur});
 });
-app.post("/connexion", async (req, res) => {
+app.post("/login", async (req, res) => {
+  const utilisateurs = data.get_all_users();
   const { email, password } = req.body;
-
+  console.log(utilisateurs);
   if (email && password) {
     const utilisateur = utilisateurs
       .find((utilisateur) => utilisateur.email === email);
@@ -66,7 +66,12 @@ app.post("/connexion", async (req, res) => {
       const validPassWord = password === utilisateur.password; //attention triple egale
       if (validPassWord) {
         req.session.idUtilisateur = utilisateur.id;
-        return res.render("index", {utilisateur});
+        if(utilisateur.testDone == true){
+          return res.render("pages/profile", {utilisateur});
+        }
+        else{
+          return res.render("pages/test", {utilisateur});
+        }
       } else {
         console.log("Mot de passe incorrect");
       }
@@ -74,12 +79,14 @@ app.post("/connexion", async (req, res) => {
       console.log("Utilisateur n'existe pas");
     }
   }
-  res.redirect("/connexion");
+  res.redirect("/login");
 });
 app.get("/register", (req, res) => {
-  res.render("inscription");
+  const { utilisateur } = res.locals;
+  res.render("pages/register", {utilisateur});
 });
-app.post("/inscription", async (req, res) => {
+app.post("/register", async (req, res) => {
+  const utilisateurs = data.get_all_users();
   const { nom, email, password } = req.body;
   console.log(nom, email, password);
   if (nom && email && password) {
@@ -94,22 +101,22 @@ app.post("/inscription", async (req, res) => {
         nom,
         email,
         password,
-        test : 0,
+        testDone : false,
         nbEtape : 0
       };
       data.add_user(nouvelUtilisateur);
       req.session.idUtilisateur = nouvelUtilisateur.id;
-      return res.render("index", {utilisateur : nouvelUtilisateur});
+      return res.render("pages/profile", {utilisateur : nouvelUtilisateur}); 
     }
     else {
       console.log("Email déjà utilisé");
     }
   }
-  res.redirect("/inscription");
+  res.redirect("/test");
 });
 
 
-app.post("/deconnexion", (req, res) => {
+app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.redirect("/");
@@ -118,8 +125,49 @@ app.post("/deconnexion", (req, res) => {
   });
 });
 
+//When user is connecte
+app.get("/test" , (req,res) =>{
+  const { utilisateur } = res.locals;
+  res.render("pages/test",{utilisateur:utilisateur});
+});
+app.get("/profile" , (req,res) =>{
+  const { utilisateur } = res.locals; 
+  if(utilisateur.testDone == true){
+    res.render("pages/profile",{utilisateur:utilisateur});
+  }
+  
+});
+app.get("/sumup" ,(req,res) =>{
+  const { utilisateur } = res.locals;
+  res.render("pages/sumup",{utilisateur:utilisateur});
+});
+app.get("/results" ,(req,res) =>{
+  const { utilisateur } = res.locals;
+  res.render("pages/results",{utilisateur:utilisateur});
+});
+app.get("/goals" ,(req,res) =>{
+  const { utilisateur } = res.locals;
+  res.render("pages/goals",{utilisateur:utilisateur});
+});
+
+
+
+
+//  Work in progress (bonus if we can do it)
+app.get("/informations", (req, res) => {
+  const { utilisateur } = res.locals;
+  res.render("pages/informations",{ utilisateur:utilisateur});
+});
+app.get("/contact",(req,res) => {
+  const { utilisateur } = res.locals;
+  res.render("pages/contact",{utilisateur:utilisateur});
+});
+
 app.listen(4001);
 console.log("L'application tourne au port 4001");
+
+
+
 
 
 /*const express = require("express");

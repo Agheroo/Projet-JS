@@ -1,0 +1,20 @@
+<nav id="nav">
+
+    <div id="nav-left">
+        <img id="hamburger" src="img/whamburger.png" onclick="openNav()">
+    </div>
+    <div id="nav-center">
+        <a><img src="img/cross.png" id="cross" onclick="closeNav()"></a>
+        <a href="/test" class="link">Évaluation</a>
+        <a href = "/contact" class = "link">Contact</a>
+    </div>
+    <div id="nav-right">
+        <% if(utilisateur){ %> 
+            <form action = "/logout" id="login" method = "post"><button type = "submit" class = "button-dark">Déconnexion</button></form>
+            <a href="/test"><img id="log" src="img/wlog.png"></a> <!-- Redirect to Profile page if connected -->
+        <%} else { %>     
+            <form action = "/login" id="login" method = "post"><button type = "submit" class = "button-dark">Connexion</button></form>    
+            <a href="/login"><img id="log" src="img/wlog.png"></a> <!-- Redirect to login page if not connected -->
+        <%}%>
+    </div>
+</nav>

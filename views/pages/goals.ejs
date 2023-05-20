@@ -6,8 +6,21 @@
 </head>
 
 <body>
-    <%-include("../partials/navbar-connected.ejs"); %>
-    <h1>Désolé, la page est en construction !</h1>
+    <%if(utilisateur){%>
+        <%if(utilisateur.testDone){%>
+            <%-include("../partials/navbar-tested.ejs"); %>
+            <h1>Objectifs</h1>
+            <h1>Désolé, la page est en construction !</h1>
+        <%}%>
+        <%if(!utilisateur.testDone){%>
+            <%-include("../partials/navbar-nottested.ejs"); %>
+            <h1>Complétez le test pour acceder à vos objectifs !</h1>
+        <%}%>
+    <%}%>
+    <%if(!utilisateur) {%>
+        <%-include("../partials/navbar.ejs"); %>
+        <h1>Connectez-vous pour acceder à cette rubrique</h1>
+    <%}%>
 
     <script src ="js/animations.js"></script>
 </body>

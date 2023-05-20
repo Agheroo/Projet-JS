@@ -3,7 +3,6 @@ const checkUserConnect = () =>{
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     for(let input in inputs){
-        console.log(inputs[input]);
         if(document.getElementById(inputs[input]).value == ""){
             document.getElementById(inputs[input]).style.border = "solid 1px red";
             alert("Veuillez rentrer des informations valides");

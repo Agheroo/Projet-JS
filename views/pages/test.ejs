@@ -9,17 +9,20 @@
     <%if(utilisateur){%>
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
+            <h1>Évalutaion</h1>
+            <h1>Voici vos résultats</h1>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
+            <h1>Évaluation</h1>
+            <h1>Faisons une super évalution</h1>
         <%}%>
     <%}%>
     <%if(!utilisateur) {%>
         <%-include("../partials/navbar.ejs"); %>
+        <h1>Connectez-vous pour acceder à cette rubrique</h1>
     <%}%>
-    <h1>Informations</h1>
-    <h1>Désolé, la page est en construction !</h1>
-
+    
     <script src ="js/animations.js"></script>
 </body>
 
