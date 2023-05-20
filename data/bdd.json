@@ -1,1 +1,128 @@
-[{"id":1,"nom":"Louis Musole","email":"louis@drcmind.com","password":"1234"},{"id":2,"nom":"Amani Bisimwa","email":"amani@drcmind.com","password":"1234"},{"id":3,"nom":"alddd","email":"ddd465465@g.c","password":"1"},{"id":4,"nom":"ere","email":"moisrran.romuald@gmail.com","password":"1"},{"id":5,"nom":"romu","email":"moisddddan.romuald@gmail.com","password":"1"},{"id":6,"nom":"dfdh","email":"edouaffrdph12@gmail.com","password":"1"},{"id":7,"nom":"eee","email":"moisaeen.romuald@gmail.com","password":"1"},{"id":8,"nom":"hola","email":"4654c65@g.c","password":"1234"},{"id":9,"nom":"dsqsd","email":"ssedouardph12@gmail.com","password":"1234"},{"id":10,"nom":"dfdh","email":"465ff465@g.c","password":"1234"},{"id":11,"nom":"test","email":"dfffd@gmail.com","password":"1234"},{"id":12,"nom":"drg","email":"dffd@gmail.com","password":"1234"},{"id":13,"nom":"sdf","email":"ddffd465465@g.c","password":"1234"},{"id":14,"nom":"sdf","email":"dfddd@gmail.com","password":"1234"},{"id":15,"nom":"zer","email":"edoeuardph12@gmail.com","password":"1234"},{"id":16,"nom":"qd","email":"moisasn.romuald@gmail.com","password":"1234"},{"id":17,"nom":"er","email":"sdee@g.er","password":"1234"},{"id":18,"nom":"er","email":"seeeed@g.er","password":"134"},{"id":19,"nom":"sdf","email":"dfdio@gmail.com","password":"1234"},{"id":20,"nom":"romuleboss","email":"ddsdq@g.c","password":"1234"}]
+[
+    {
+        "id": 1,
+        "nom": "Louis Musole",
+        "email": "louis@drcmind.com",
+        "password": "1234"
+    },
+    {
+        "id": 2,
+        "nom": "Amani Bisimwa",
+        "email": "amani@drcmind.com",
+        "password": "1234"
+    },
+    {
+        "id": 3,
+        "nom": "alddd",
+        "email": "ddd465465@g.c",
+        "password": "1"
+    },
+    {
+        "id": 4,
+        "nom": "ere",
+        "email": "moisrran.romuald@gmail.com",
+        "password": "1"
+    },
+    {
+        "id": 5,
+        "nom": "romu",
+        "email": "moisddddan.romuald@gmail.com",
+        "password": "1"
+    },
+    {
+        "id": 6,
+        "nom": "dfdh",
+        "email": "edouaffrdph12@gmail.com",
+        "password": "1"
+    },
+    {
+        "id": 7,
+        "nom": "eee",
+        "email": "moisaeen.romuald@gmail.com",
+        "password": "1"
+    },
+    {
+        "id": 8,
+        "nom": "hola",
+        "email": "4654c65@g.c",
+        "password": "1234"
+    },
+    {
+        "id": 9,
+        "nom": "dsqsd",
+        "email": "ssedouardph12@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 10,
+        "nom": "dfdh",
+        "email": "465ff465@g.c",
+        "password": "1234"
+    },
+    {
+        "id": 11,
+        "nom": "test",
+        "email": "dfffd@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 12,
+        "nom": "drg",
+        "email": "dffd@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 13,
+        "nom": "sdf",
+        "email": "ddffd465465@g.c",
+        "password": "1234"
+    },
+    {
+        "id": 14,
+        "nom": "sdf",
+        "email": "dfddd@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 15,
+        "nom": "zer",
+        "email": "edoeuardph12@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 16,
+        "nom": "qd",
+        "email": "moisasn.romuald@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 17,
+        "nom": "er",
+        "email": "sdee@g.er",
+        "password": "1234"
+    },
+    {
+        "id": 18,
+        "nom": "er",
+        "email": "seeeed@g.er",
+        "password": "134"
+    },
+    {
+        "id": 19,
+        "nom": "sdf",
+        "email": "dfdio@gmail.com",
+        "password": "1234"
+    },
+    {
+        "id": 20,
+        "nom": "romuleboss",
+        "email": "ddsdq@g.c",
+        "password": "1234"
+    },
+    {
+        "id": 21,
+        "nom": "romu1234",
+        "email": "1234@gmail.com",
+        "password": "$2b$10$n4K0n5SumULnVX/GlarSM.345GFivLfHpCFandj0rJJYwSaouwOZa"
+    }
+]

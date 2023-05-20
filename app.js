@@ -87,11 +87,15 @@ app.post("/inscription", async (req, res) => {
       (utilisateur) => utilisateur.email === email
     );
     if (!utilisateur) {
+      // const salt = await bcrypt.genSalt(10);
+      // const pwToSave = await bcrypt.hash(password,salt);
       let nouvelUtilisateur = {
         id: utilisateurs.length + 1,
         nom,
         email,
-        password
+        password,
+        test : 0,
+        nbEtape,
       };
       data.add_user(nouvelUtilisateur);
       req.session.idUtilisateur = nouvelUtilisateur.id;
