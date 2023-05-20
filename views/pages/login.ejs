@@ -11,16 +11,16 @@
     <div id = "login-main" class = "wrapper">
         <h1>Connexion</h1>
         <div id = "login-wrapper">
-            <form id = "login-form">
+            <form id = "login-form" method = "post" action = "/login">
                 <label for = "email">Email</label>
                 <div class = "row-input">
-                    <input id = "email" type = "email">
+                    <input id = "email" type = "email" name = "email">
                 </div>                
                 <label for = "password">Mot de passe</label>
                 <div class = "row-input">
-                    <input id = "password" type = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
+                    <input id = "password" type = "password" name = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
                 </div>
-                <div class = "button-yellow" onclick = "checkUserConnect()">Se connecter</div> <!-- Function to link with backend -->
+                <button class = "button-yellow" onclick = "checkUserConnect()" type = "submit">Se connecter</button> <!-- Function to link with backend -->
             </form>
             <div class = "center-right"><a href = "/register">Pas de compte ?</a></div>
         </div>

@@ -7,7 +7,11 @@
 
 
 <body>
-    <%-include("../partials/navbar", {utilisateur:utilisateur}); %>
+    <%if(utilisateur){%>
+        <%-include("../partials/navbar-connected.ejs"); %>
+    <%}else {%>
+        <%-include("../partials/navbar.ejs"); %>
+    <%}%>
     <div id = "main" class = "wrapper">
         <div id = "welcome" class = "wrapper">
             <div class = "parent-image" id = "preview-parent0">

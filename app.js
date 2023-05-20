@@ -38,7 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.engine("ejs", ejs.__express);
+app.engine("html", ejs.__express);
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -50,14 +50,17 @@ app.get("/", (req, res) => {
   console.log(utilisateurs);
   res.render("pages/index", {
     cours, 
-    utilisateur:utilisateur });
+    utilisateur});
+  console.log(utilisateur);
 });
 app.get("/login", (req, res) => {
-  res.render("pages/login");
+  const { utilisateur } = res.locals;
+
+  res.render("pages/login",{cours, utilisateur:utilisateur});
 });
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
+  
   if (email && password) {
     const utilisateur = utilisateurs
       .flat()
@@ -80,7 +83,8 @@ app.post("/login", async (req, res) => {
   res.redirect("/login");
 });
 app.get("/register", (req, res) => {
-  res.render("pages/register");
+  const { utilisateur } = res.locals;
+  res.render("pages/register",{cours, utilisateur:utilisateur});
 });
 app.post("/register", async (req, res) => {
   const { nom, email, password } = req.body;
@@ -110,31 +114,34 @@ app.post("/register", async (req, res) => {
 
 /*  Work in progress (bonus if we can do it) */
 app.get("/informations", (req, res) => {
-  res.render("pages/informations");
+  const { utilisateur } = res.locals;
+  res.render("pages/informations",{cours, utilisateur:utilisateur});
 });
 app.get("/contact",(req,res) => {
-  res.render("pages/contact");
+  const { utilisateur } = res.locals;
+  res.render("pages/contact",{cours, utilisateur:utilisateur});
 });
 /***************************************** */
 
 
 /*When user is connected */
 app.get("/profile" , (req,res) =>{
-  res.render("pages/profile");
+  const { utilisateur } = res.locals;
+  res.render("pages/profile",{cours, utilisateur:utilisateur});
 });
 app.get("/sumup" ,(req,res) =>{
-  res.render("pages/sumup");
+  const { utilisateur } = res.locals;
+  res.render("pages/sumup",{cours, utilisateur:utilisateur});
 });
 app.get("/results" ,(req,res) =>{
-  res.render("pages/results");
+  const { utilisateur } = res.locals;
+  res.render("pages/results",{cours, utilisateur:utilisateur});
 });
 app.get("/goals" ,(req,res) =>{
-  res.render("pages/goals");
+  const { utilisateur } = res.locals;
+  res.render("pages/goals",{cours, utilisateur:utilisateur});
 });
 
-app.get("/logout",(req,res)=>{
-  res.render("pages/index");
-});
 app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {

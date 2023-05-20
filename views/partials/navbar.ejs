@@ -10,7 +10,13 @@
         <a href="/contact" class="link">Contact</a>
     </div>
     <div id="nav-right">
-        <a id="login" href="/login">Connexion</a>               <!-- Redirect to login and there will be a small link to register -->
-        <a href="/login"><img id="log" src="img/wlog.png"></a> <!-- Redirect to Profile page if connected -->
+        <% if(utilisateur){ %> 
+            <form action = "/logout" id="login" method = "post"><button type = "submit" class = "button-dark">Déconnexion</button></form>
+            <a href="/profile"><img id="log" src="img/wlog.png"></a> <!-- Redirect to Profile page if connected -->
+        <%} else { %>     
+            <form action = "/login" id="login" method = "post"><button type = "submit" class = "button-dark">Connexion</button></form>    
+            <a href="/login"><img id="log" src="img/wlog.png"></a> <!-- Redirect to login page if not connected -->
+        <%}%>
+
     </div>
 </nav>
