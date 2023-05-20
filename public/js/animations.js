@@ -1,19 +1,11 @@
 const showWrittenPassword = () =>{
     if(document.getElementById("password").type == "password"){
         document.getElementById("password").type = "text";
-<<<<<<< HEAD
-        document.getElementById("eye").src = "../public/img/eye.png";
-    }
-    else{
-        document.getElementById("password").type = "password";
-        document.getElementById("eye").src = "../public/img/closed-eye.png";
-=======
         document.getElementById("eye").src = "img/eye.png";
     }
     else{
         document.getElementById("password").type = "password";
         document.getElementById("eye").src = "img/closed-eye.png";
->>>>>>> a87dc19a90e4eb20a45ccced9f9677b734512b29
     }
 }
 const openNav = () => {
