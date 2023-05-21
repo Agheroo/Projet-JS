@@ -1,14 +1,17 @@
 # AI SportsLab 
 
+# Lancement de l'appli
+Après avoir téléchargé (ou pull) tous les fichiers de la branche main, effectuer **node app** dans votre console
+
 ## Résumé
 
 L'indutstrie du fitness est très demandé mais très peu de conseils fiable de manière gratuite sont proposés.
 
 L'objectif de ce projet est la conception, le développement et la mise en place d'une plateforme permettant d'évaluer votre forme physique à travers différents exercices physiques visant à fournir sur une échelle (A : best,B,C,D) le niveau de l'individu et des conseils pour améliorer sa note.
 
-Pour réaliser ce projet, nous allons utiliser de l'intelligence artificielle qui va nous permettre de donner une note permettant d'évaluer la forme physique d'un individu à partir des résultats obtenus aux différents exercices.
-En ce qui concerne le développement nous avons opté pour utiliser NodeJS comme environnement de développement accompagné de ses différents Framework entre
-autres Express (ou MongoDB).
+Pour réaliser ce projet, nous allons utiliser une l'intelligence artificielle qui va nous permettre de donner une note afin d'évaluer la forme physique d'un individu à partir des résultats obtenus aux différents exercices.
+En ce qui concerne le développement nous avons choisi d'utiliser NodeJS comme environnement de développement accompagné de ses différents Framework (entre
+autres Express ou MongoDB).
 
 ## Fonctions proposées
 
