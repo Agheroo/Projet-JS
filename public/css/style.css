@@ -14,7 +14,6 @@
     --highlight-orange:#d46318;
     --button-color:#dab825;
     --button-color-black:#070707;
-    --button-color-dark:#679daa;
 }
 
 /* NAV & GLOBAL */
@@ -24,7 +23,6 @@
     background:var(--main-bg-color);
     font-family: 'Montserrat', sans-serif;
     overflow-x:hidden;
-    overflow-y: hidden;
 }
 a{
     text-decoration: none;
@@ -71,6 +69,7 @@ nav{
     height:inherit;
     align-items: center;
     background: var(--nav-bg-color);
+    overflow-y: hidden;
 }
 #nav-right{
     justify-content: flex-end;
