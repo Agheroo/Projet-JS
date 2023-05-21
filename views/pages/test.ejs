@@ -10,12 +10,68 @@
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
             <h1>Évalutaion</h1>
-            <h1>Voici vos résultats</h1>
+            <h1>Résultats de votre première évaluation</h1>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
             <h1>Évaluation</h1>
-            <h1>Faisons une super évalution</h1>
+            <div class = "wrapper">
+                <div id = "step-wrapper">
+                    <div class = "uncomplete-line"></div>
+                    <div class = "step-point"></div>
+                    <%for(let i=0;i<utilisateur.nbEtape;i++){%>
+                        <div class = "step-line"></div>
+                        <div class = "step-point"></div>
+                    <%}%>
+                    <%for(let i=utilisateur.nbEtape;i<8;i++){%>
+                        <div class = "invisible-line"></div>
+                        <div class = "uncomplete-step-point"></div>
+                    <%}%>
+                </div>
+
+                <div id = "login-wrapper">
+                    <h1>Étape <%=utilisateur.nbEtape +1%></h1>
+                    <%if(utilisateur.nbEtape == 0){%>
+                        <form id = "login-form" method = "post" action = "/test">
+                            <label for = "sex">Sexe (biologique)</label>
+                            <div class = "row-input" style = "justify-content: space-evenly;">
+                                <div style = "background:var(--main-bg-color-bis);">
+                                    <label class = radio for = "male">M</label>
+                                    <input class = "radio" type="radio" id="male" name="sex" value="0">
+                                </div>
+                                <div style = "background:var(--main-bg-color-bis);">
+                                    <label class = radio for = "male">F</label>
+                                    <input class = "radio" type="radio" id="female" name="sex" value="1">
+                                </div>
+                            </div>
+                            <label for = "weight">Poids</label>
+                            <div class = "row-input">
+                                <input id = "weight" type = "number" name = "weight" placeholder="Exemple : 80kg">
+                            </div> 
+                            <label for = "age">Âge</label>
+                            <div class = "row-input">
+                                <input id = "age" type = "number" name = "age" placeholder="Exemple : 28 ans">
+                            </div>                
+                            <label for = "height">Taille</label>
+                            <div class = "row-input">
+                                <input id = "height" type = "number" name = "height">
+                            </div>
+                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                        </form>
+                    <%}%>
+                    <%if(utilisateur.nbEtape == 1){%>
+                    <%}%>
+                    <%if(utilisateur.nbEtape == 2){%>
+                    <%}%>
+                    <%if(utilisateur.nbEtape == 3){%>
+                    <%}%>
+                    <%if(utilisateur.nbEtape == 4){%>
+                    <%}%>
+                    <%if(utilisateur.nbEtape == 5){%>
+                    <%}%>
+                </div>
+
+            </div>
         <%}%>
     <%}%>
     <%if(!utilisateur) {%>
@@ -24,6 +80,7 @@
     <%}%>
     
     <script src ="js/animations.js"></script>
+    <script src ="js/evaluate.js"></script>
 </body>
 
 </html>
