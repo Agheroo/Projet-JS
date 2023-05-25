@@ -30,6 +30,20 @@ autres Express ou MongoDB).
 | Thibaud Heub      |       Backend     |  
 | Romuald Moisan    | Backend / Rapport |   
 
+# Mode d'emploi
+
+Il faut téléchrger et extraire le répertoire (ProjetJS).
+Dans ce répertoire, mettez vous à la racine, puis exécutez la commande suivante :  
+
+```bash
+$ node app.js
+```
+Puis rendez vous sur votre navigateur préféré pour utiliser l'API.
+Tapez : 
+```
+http://localhost:4001
+```
+
 # Lien DataBase
 
 https://www.kaggle.com/datasets/kukuroo3/body-performance-data
