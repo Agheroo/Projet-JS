@@ -6,6 +6,10 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const data = require("./data/data");
 let utilisateurs = data.get_all_users();
+let alert = require('alert'); 
+
+
+
 
 require("dotenv").config();
 
@@ -101,7 +105,7 @@ app.post("/register", async (req, res) => {
         password,
         testDone: false,
         nbEtape: 0,
-        info:[],
+        info: [],
       };
       data.add_user(nouvelUtilisateur);
       utilisateurs = data.get_all_users();
@@ -128,12 +132,18 @@ app.post("/logout", (req, res) => {
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
   const { utilisateur } = res.locals;
-  res.render("pages/test", { utilisateur: utilisateur });
+  res.render("/test", { utilisateur: utilisateur });
 });
-app.post("/test", async (req, res) => { 
+app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];
+  for (let propriete in req.body) {
+    if (req.body[propriete] == "") {
+      console.log("Remplir les champs");
+      res.redirect("/test");
+    }
+  }
   data.edit_user(tab_info);
-  res.redirect("pages/test");
+  res.redirect("/test");
 });
 
 app.get("/profile", (req, res) => {
