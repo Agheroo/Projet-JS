@@ -6,7 +6,7 @@ const checkAddUser = () =>{
     for(let input in inputs){
         if(document.getElementById(inputs[input]).value == ""){
             document.getElementById(inputs[input]).style.border = "solid 1px red";
-            alert("Veuillez rentrer des informations valides");
+            //alert("Veuillez rentrer des informations valides");
             return;
         }
         else

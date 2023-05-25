@@ -132,7 +132,7 @@ app.post("/logout", (req, res) => {
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
   const { utilisateur } = res.locals;
-  res.render("/test", { utilisateur: utilisateur });
+  res.render("pages/test", { utilisateur: utilisateur });
 });
 app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];

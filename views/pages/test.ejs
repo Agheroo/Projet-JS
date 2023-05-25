@@ -36,25 +36,25 @@
                             <label for = "sex">Sexe (biologique)</label>
                             <div class = "row-input" style = "justify-content: space-evenly;">
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <input class = "radio" type="radio" id="male" name="sex" value="0">
+                                    <input class = "radio" type="radio" id="male" name="sex" value="0" required>
                                     <label class = radio for = "male">M</label>
                                 </div>
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <input class = "radio" type="radio" id="female" name="sex" value="1">
+                                    <input class = "radio" type="radio" id="female" name="sex" value="1" required>
                                     <label class = radio for = "female">F</label>
                                 </div>
                             </div>
                             <label for = "weight">Poids (kg)</label>
                             <div class = "row-input">
-                                <input id = "weight" type = "number" name = "weight" placeholder="Exemple : 80">
+                                <input id = "weight" type = "number" name = "weight" placeholder="Exemple : 80" required>
                             </div> 
                             <label for = "age">Âge (années)</label>
                             <div class = "row-input">
-                                <input id = "age" type = "number" name = "age" placeholder="Exemple : 28">
+                                <input id = "age" type = "number" name = "age" placeholder="Exemple : 28" required>
                             </div>                
                             <label for = "height">Taille (cm)</label>
                             <div class = "row-input">
-                                <input id = "height" type = "number" name = "height"placeholder = "Exemple : 175">
+                                <input id = "height" type = "number" name = "height"placeholder = "Exemple : 175" required>
                             </div>
                             <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
                         </form>
