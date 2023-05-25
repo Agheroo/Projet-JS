@@ -10,7 +10,6 @@
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
             <h1>Évalutaion</h1>
-            <h1>Résultats de votre première évaluation</h1>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
@@ -57,7 +56,7 @@
                             <div class = "row-input">
                                 <input id = "height" type = "number" name = "height"placeholder = "Exemple : 175" required>
                             </div>
-                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                            <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 1){%>
@@ -74,42 +73,53 @@
                             <div class = "row-input">
                                 <input id = "grip" type = "number" name = "grip" placeholder="Exemple : 36" required>
                             </div>
-                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                            <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 2){%>
                         <br>
                         <h2 class = "exercise-desc" style = "color:var(--highlight-yellow);">EXERCICE</h2>
-                        <h2 class = "exercise-desc">Placez-vous <span class = "highlight-blue">assis sur le sol </span>(avec un tapis ou une serviette) et <span class = "highlight-yellow">penchez-vous</span> pour rapprocher vos mains de vos pieds en gardant vos jambes le plus tendu possibles</h2>
-                        
+                        <h2 class = "exercise-desc">Placez-vous <span class = "highlight-blue">assis sur le sol </span><span class = "exercise-quicknote">(avec un tapis ou une serviette)</span> et <span class = "highlight-yellow">penchez-vous</span> pour rapprocher vos mains de vos pieds en gardant vos jambes le plus tendu possibles</h2>
                         <img class = "exercise-img" src = "img/exo1.png">
-                        
                         <h2 class = "exercise-desc"><span class = "highlight-yellow">Mesurez</span> ensuite la <span class = "highlight-blue">distance</span> entre vos mains et vos pieds</h2>
-                        <h2 class = "exercise-quicknote">Rappel : Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
+                        <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "sit-bend">Votre résultat (cm)</label>
                             <div class = "row-input">
                                 <input id = "sit-bend" type = "number" name = "sit-bend" placeholder="Exemple : 16" required>
                             </div>
-                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                            <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
+                        <h2 class = "exercise-quicknote">Note: Si vos mains dépassent vos pieds, mettez votre résultat en négatif</h2>
                     <%}%>
                     <%if(utilisateur.nbEtape == 3){%>
+                        <br>
+                        <h2 class = "exercise-desc" style = "color:var(--highlight-yellow);">EXERCICE</h2>
+                        <h2 class = "exercise-desc">Placez-vous <span class = "highlight-blue">assis sur le sol </span><span class = "exercise-quicknote">(avec un tapis ou une serviette)</span> et <span class = "highlight-yellow">effectuez</span> des crunchs</h2>
+                        <img class = "exercise-img" src = "img/exo2.png">
+                        <h2 class = "exercise-desc"><span class = "highlight-yellow">Comptez</span> votre nombre de <span class = "highlight-blue">crunch fait</span> et <span class = "highlight-yellow">arrêtez</span> quand vous ne vous sentez <span class = "highlight-blue">plus capable</span></h2>
+                        <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "sit-ups">Votre résultat</label>
                             <div class = "row-input">
                                 <input id = "sit-ups" type = "number" name = "sit-ups" placeholder="Exemple : 41" required>
                             </div>
-                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                            <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 4){%>
+                        <br>
+                        <h2 class = "exercise-desc" style = "color:var(--highlight-yellow);">EXERCICE</h2>
+                        <h2 class = "exercise-desc">Placez-vous <span class = "highlight-blue">debout, pieds joints </span><span class = "exercise-quicknote">(avec de l'espace autours de vous) </span> et <span class = "highlight-yellow">sautez</span> le plus loin possible devant vous</h2>
+                        <img class = "exercise-img" src = "img/exo3.png">
+                        <h2 class = "exercise-desc"><span class = "highlight-yellow">Mesurez </span> la <span class = "highlight-blue">distance</span> parcourue entre votre point de départ et celui d'arrivé</h2>
+                        <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "broad-jump">Votre résultat (cm)</label>
                             <div class = "row-input">
                                 <input id = "broad-jump" type = "number" name = "broad-jump" placeholder="Exemple : 190" required>
                             </div>
-                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit" href = "/profile">Terminer</button>
+                            <button class = "button-yellow" type = "submit" href = "/profile">Terminer</button>
                         </form>
                     <%}%>
                 </div>
@@ -123,7 +133,6 @@
     <%}%>
     
     <script src ="js/animations.js"></script>
-    <script src ="js/evaluate.js"></script>
 </body>
 
 </html>

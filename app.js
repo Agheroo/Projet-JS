@@ -136,24 +136,21 @@ app.get("/test", (req, res) => { // Page qui récupère les informations pour un
 });
 app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];
-  console.log("test2");
   data.edit_user(tab_info);
 
-  res.redirect("/test");
+  res.redirect("/profile");
 });
 
 app.get("/profile", (req, res) => {
-  const { utilisateur } = res.locals;
+  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
   res.render("pages/profile", { utilisateur: utilisateur });
-
-
 });
 app.get("/results", (req, res) => {
-  const { utilisateur } = res.locals;
+  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
   res.render("pages/results", { utilisateur: utilisateur });
 });
 app.get("/goals", (req, res) => {
-  const { utilisateur } = res.locals;
+  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
   res.render("pages/goals", { utilisateur: utilisateur });
 });
 
@@ -162,11 +159,11 @@ app.get("/goals", (req, res) => {
 
 //  Work in progress (bonus if we can do it)
 app.get("/informations", (req, res) => {
-  const { utilisateur } = res.locals;
+  const {utilisateur} = res.locals;
   res.render("pages/informations", { utilisateur: utilisateur });
 });
 app.get("/contact", (req, res) => {
-  const { utilisateur } = res.locals;
+  const {utilisateur} = res.locals;
   res.render("pages/contact", { utilisateur: utilisateur });
 });
 
