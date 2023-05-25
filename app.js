@@ -6,7 +6,7 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const data = require("./data/data");
 let utilisateurs = data.get_all_users();
-let alert = require('alert'); 
+
 
 
 

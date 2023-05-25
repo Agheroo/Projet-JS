@@ -88,5 +88,53 @@
                 "height": "2"
             }
         ]
+    },
+    {
+        "id": 8,
+        "nom": "er",
+        "email": "moqdqisan.dromuald@gmail.com",
+        "password": "1",
+        "testDone": false,
+        "nbEtape": 1,
+        "info": [
+            {
+                "sex": "0",
+                "weight": "85",
+                "age": "85",
+                "height": "85"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nom": "ald",
+        "email": "moisan.drxvxvomuald@gmail.com",
+        "password": "1",
+        "testDone": false,
+        "nbEtape": 1,
+        "info": [
+            {
+                "sex": "0",
+                "weight": "8",
+                "age": "8",
+                "height": "8"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nom": "romu",
+        "email": "moisanuil.dromuald@gmail.com",
+        "password": "3",
+        "testDone": false,
+        "nbEtape": 1,
+        "info": [
+            {
+                "sex": "0",
+                "weight": "8",
+                "age": "8",
+                "height": "8"
+            }
+        ]
     }
 ]
