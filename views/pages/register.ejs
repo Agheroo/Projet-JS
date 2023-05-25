@@ -13,17 +13,16 @@
             <form id = "login-form" method = "post" action = "/register">
                 <label for = "username">Nom *</label>
                 <div class = "row-input">
-                    <input id = "username" type = "text" name = "nom">
+                    <input id = "username" type = "text" name = "nom" autocomplete="name">
                 </div> 
                 <label for = "email">Email *</label>
                 <div class = "row-input">
-                    <input id = "email" type = "email" name = "email">
+                    <input id = "email" type = "email" name = "email" autocomplete="email">
                 </div>                
                 <label for = "password">Mot de passe *</label>
                 <div class = "row-input">
-                    <input id = "password" type = "password" name = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
+                    <input id = "password" type = "password" name = "password" autocomplete="current-password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
                 </div>
-                <label for = "repeat-password">Répétez le mot de passe *</label>
                 <button class = "button-yellow" onclick = "checkAddUser()" type = "submit">S'inscrire</button>
             </form>
             <div class = "center-right"><a href = "/login">Vous avez déjà un compte ?</a></div>
