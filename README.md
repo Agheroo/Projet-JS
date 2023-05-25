@@ -37,3 +37,7 @@ https://www.kaggle.com/datasets/kukuroo3/body-performance-data
 # Consignes 
 
 https://docs.google.com/document/d/1QDN1FKvcOgGcuCe6ahoRFP_BOm3MH0U8gpcQW4OXMxY/edit
+
+# Documentation
+
+https://docs.google.com/document/d/1UPjf8aNKPsKEb5-mecMY_IBwbgisT_bRuB3l2LFdZKc/edit?usp=sharing
