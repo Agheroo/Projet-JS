@@ -86,6 +86,23 @@ nav{
     font-size:2vh;
 }
 
+
+/**********************************************************************************************/
+/* FOOTER */
+.pdg-text{
+    text-align: center;
+    color:var(--highlight-yellow);
+    font-size:1em;
+}
+
+footer{
+    height:10vh;
+}
+
+footer, footer>*{
+    background:var(--main-bg-color);
+}
+
 /**********************************************************************************************/
 /* INDEX */
 
@@ -102,6 +119,15 @@ nav{
 }
 .parent-image{
     overflow-y: hidden;
+}
+.parent-image-pdg{
+    width:30%;
+    height:auto;
+    overflow-y: hidden;
+}
+.pdg-img{
+    height:10em;
+    width:auto;
 }
 #main-img1{
     background-image: url("../img/welcome-image.jpg");
