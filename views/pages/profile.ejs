@@ -17,7 +17,7 @@
                 <% if(utilisateur.note == 'c'){ %><h2 style = "text-align:center; color:var(--highlight-yellow);">C</h2><%}%>
                 <% if(utilisateur.note == 'd'){ %><h2 style = "text-align:center; color:var(--highlight-orange);">D</h2><%}%>
                 <br><br>
-                <h2 style = "text-align:center; color: var(--light-text-color);">N'hésitez pas à consulter vos objectifs pour obtenir un meilleur score !</h2>
+                <% if(utilisateur.note != 'a') {%><h2 style = "text-align:center; color: var(--light-text-color);">N'hésitez pas à consulter vos objectifs pour obtenir un meilleur score !</h2><%}%>
                 <a href = "/goals" class = "button-yellow">Objectifs</a>
             </div>
         <%}%>
