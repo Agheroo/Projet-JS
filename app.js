@@ -131,9 +131,7 @@ app.post("/logout", (req, res) => {
 
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
-  // utilisateurs = data.get_all_users();
-  console.log("test1");
-  console.log(utilisateurs[req.session.idUtilisateur - 1]);
+
   if (utilisateurs[req.session.idUtilisateur - 1]["testDone"] == true) {
     console.log("romu");
     data.remake_test(req.session.idUtilisateur - 1);
@@ -144,7 +142,6 @@ app.get("/test", (req, res) => { // Page qui récupère les informations pour un
   res.render("pages/test", { utilisateur: utilisateur });
 });
 app.post("/test", async (req, res) => {
-  console.log("test2");
   let tab_info = [req.session.idUtilisateur, req.body];
   data.edit_user(tab_info);
   utilisateurs = data.get_all_users();
