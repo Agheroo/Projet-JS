@@ -67,14 +67,24 @@ const data_public = {
 
     // Ajout des clés dans info
     for (key in user[1]) {
-      users[user[0] - 1].info[key] = user[1][key]
+      users[user[0] - 1].info[key] = user[1][key];
+      if (key == "height") {
+        let IMC = 10000 * parseInt(users[user[0] - 1]["info"]["weight"]) / (parseInt(users[user[0] - 1]["info"]["height"]) * parseInt(users[user[0] - 1]["info"]["height"]));
+        let IMG = 1.2 * IMC  + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
+        console.log(IMC);
+        users[user[0] - 1].info["IMG"] = IMG;
+      }
     }
+
+    users[user[0] - 1].info[key] = user[1][key]
     // Ajout d'une étpae à chaque fois
     users[user[0] - 1]["nbEtape"] += 1;
 
     if (users[user[0] - 1]["nbEtape"] == 5) {
       users[user[0] - 1]["testDone"] = true;
     }
+
+
 
     // écris les utilisateurs et renvoie faux s'il n'y arrive pas
     try {
@@ -101,7 +111,7 @@ const data_public = {
     }
     //edit user
 
-  
+
     // Remise à zero du nombre d'étape et du test
     users[user]["nbEtape"] = 0;
     users[user]["testDone"] = false;
