@@ -256,13 +256,13 @@ h1{
 }
 .step-line{
     height:0.7vh;
-    width:10%;
+    width:22.5%;
     z-index: 1;
     background:var(--bg-dark-color);
 }
 .invisible-line{
     height:0.7vh;
-    width:10%;
+    width:22.5%;
 }
 .uncomplete-line{
     position:absolute;
@@ -271,6 +271,9 @@ h1{
     border:solid 1px var(--bg-dark-color);
     border-radius:2em;
     z-index:0;
+}
+.exercise-desc{
+    
 }
 .radio{
     background:var(--main-bg-color-bis);

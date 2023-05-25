@@ -17,13 +17,13 @@
             <h1>Évaluation</h1>
             <div class = "wrapper">
                 <div id = "step-wrapper">
-                    <div class = "uncomplete-line"></div>
                     <div class = "step-point"></div>
+                    <div class = "uncomplete-line"></div>
                     <%for(let i=0;i<utilisateur.nbEtape;i++){%>
                         <div class = "step-line"></div>
                         <div class = "step-point"></div>
                     <%}%>
-                    <%for(let i=utilisateur.nbEtape;i<8;i++){%>
+                    <%for(let i=utilisateur.nbEtape;i<4;i++){%>
                         <div class = "invisible-line"></div>
                         <div class = "uncomplete-step-point"></div>
                     <%}%>
@@ -60,14 +60,47 @@
                         </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 1){%>
+                        <form id = "login-form" method = "post" action = "/test">
+                            <label for = "diastolic">Pression diastolique (min)</label>
+                            <div class = "row-input">
+                                <input id = "diastolic" type = "number" name = "diastolic" placeholder="Exemple : 80" required>
+                            </div>
+                            <label for = "systolic">Pression systolique (min)</label>
+                            <div class = "row-input">
+                                <input id = "systolic" type = "number" name = "systolic" placeholder="Exemple : 80" required>
+                            </div>
+                            <label for = "grip">Force de serrage (N)</label>
+                            <div class = "row-input">
+                                <input id = "grip" type = "number" name = "grip" placeholder="Exemple : 80" required>
+                            </div>
+                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                        </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 2){%>
+                        <form id = "login-form" method = "post" action = "/test">
+                            <label for = "sit-bend">Votre résultat (cm)</label>
+                            <div class = "row-input">
+                                <input id = "sit-bend" type = "number" name = "sit-bend" placeholder="Exemple : 80" required>
+                            </div>
+                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                        </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 3){%>
+                        <form id = "login-form" method = "post" action = "/test">
+                            <label for = "sit-ups">Votre résultat</label>
+                            <div class = "row-input">
+                                <input id = "sit-ups" type = "number" name = "sit-ups" placeholder="Exemple : 80" required>
+                            </div>
+                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
+                        </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 4){%>
-                    <%}%>
-                    <%if(utilisateur.nbEtape == 5){%>
+                        <form id = "login-form" method = "post" action = "/test">
+                            <label for = "broad-jump">Votre résultat (cm)</label>
+                            <div class = "row-input">
+                                <input id = "broad-jump" type = "number" name = "broad-jump" placeholder="Exemple : 80" required>
+                            </div>
+                        </form>
                     <%}%>
                 </div>
 
