@@ -65,8 +65,11 @@ const data_public = {
     }
     //edit user
 
-
-    users[user[0] - 1]["info"][users[user[0] - 1]["info"].length] = user[1];
+    // Ajout des clés dans info
+    for (key in user[1]) {
+      users[user[0]-1].info[key] = user[1][key]
+    }
+    // Ajout d'une étpae à chaque fois
     users[user[0] - 1]["nbEtape"] += 1;
 
     // écris les utilisateurs et renvoie faux s'il n'y arrive pas
