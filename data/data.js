@@ -68,10 +68,11 @@ const data_public = {
     // Ajout des clés dans info
     for (key in user[1]) {
       users[user[0] - 1].info[key] = user[1][key];
-      if (key == "weight") {
-        let IMC = parseInt(users[user[0] - 1]["weight"]) / (parseInt(users[user[0] - 1]["height"]) * parseInt(users[user[0] - 1]["height"]));
-        let IMG = 1.2 * IMC + 0.23 * parseInt(users[user[0] - 1]["age"]) - 10.8 * parseInt(users[user[0] - 1]["sex"]) - 5.4 
-        users[user[0] - 1].info["IMG"] = IMG;;
+      if (key == "height") {
+        let IMC = 10000 * parseInt(users[user[0] - 1]["info"]["weight"]) / (parseInt(users[user[0] - 1]["info"]["height"]) * parseInt(users[user[0] - 1]["info"]["height"]));
+        let IMG = 1.2 * IMC  + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
+        console.log(IMC);
+        users[user[0] - 1].info["IMG"] = IMG;
       }
     }
 
