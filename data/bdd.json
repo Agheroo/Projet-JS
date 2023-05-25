@@ -1,18 +1,1 @@
-[
-    {
-        "id": 1,
-        "nom": "romu",
-        "email": "dfd@gmail.com",
-        "password": "1234",
-        "testDone": false,
-        "nbEtape": 0,
-        "info": [
-            {
-                "sex": "0",
-                "weight": "4",
-                "age": "5",
-                "height": "4"
-            }
-        ]
-    }
-]
+[{"id":1,"nom":"romu","email":"dfd@gmail.com","password":"1234","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"4","age":"5","height":"4"}]},{"id":2,"nom":"renan","email":"reauxrenan@lol.fr","password":"azer","testDone":false,"nbEtape":0,"info":[{"sex":"1","weight":"12","age":"29","height":"12"}]}]

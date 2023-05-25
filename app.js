@@ -132,8 +132,9 @@ app.get("/test", (req, res) => { // Page qui récupère les informations pour un
 });
 app.post("/test", async (req, res) => { 
   let tab_info = [req.session.idUtilisateur, req.body];
+  
   data.edit_user(tab_info);
-  res.redirect("pages/test");
+  res.redirect("/test");
 });
 
 app.get("/profile", (req, res) => {

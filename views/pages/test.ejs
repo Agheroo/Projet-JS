@@ -36,25 +36,25 @@
                             <label for = "sex">Sexe (biologique)</label>
                             <div class = "row-input" style = "justify-content: space-evenly;">
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <label class = radio for = "male">M</label>
                                     <input class = "radio" type="radio" id="male" name="sex" value="0">
+                                    <label class = radio for = "male">M</label>
                                 </div>
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <label class = radio for = "male">F</label>
                                     <input class = "radio" type="radio" id="female" name="sex" value="1">
+                                    <label class = radio for = "female">F</label>
                                 </div>
                             </div>
-                            <label for = "weight">Poids</label>
+                            <label for = "weight">Poids (kg)</label>
                             <div class = "row-input">
-                                <input id = "weight" type = "number" name = "weight" placeholder="Exemple : 80kg">
+                                <input id = "weight" type = "number" name = "weight" placeholder="Exemple : 80">
                             </div> 
-                            <label for = "age">Âge</label>
+                            <label for = "age">Âge (années)</label>
                             <div class = "row-input">
-                                <input id = "age" type = "number" name = "age" placeholder="Exemple : 28 ans">
+                                <input id = "age" type = "number" name = "age" placeholder="Exemple : 28">
                             </div>                
-                            <label for = "height">Taille</label>
+                            <label for = "height">Taille (cm)</label>
                             <div class = "row-input">
-                                <input id = "height" type = "number" name = "height">
+                                <input id = "height" type = "number" name = "height"placeholder = "Exemple : 175">
                             </div>
                             <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
                         </form>
