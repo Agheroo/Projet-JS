@@ -71,6 +71,11 @@ const data_public = {
     }
     // Ajout d'une étpae à chaque fois
     users[user[0] - 1]["nbEtape"] += 1;
+    
+    if(users[user[0] - 1]["nbEtape"] == 5)
+    {
+      users[user[0] - 1]["testDone"] = true;
+    }
 
     // écris les utilisateurs et renvoie faux s'il n'y arrive pas
     try {
