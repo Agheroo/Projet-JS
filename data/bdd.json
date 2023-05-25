@@ -1,18 +1,1 @@
-[
-    {
-        "id": 1,
-        "nom": "romu",
-        "email": "dfd@gmail.com",
-        "password": "1234",
-        "testDone": false,
-        "nbEtape": 0,
-        "info": [
-            {
-                "sex": "0",
-                "weight": "4",
-                "age": "5",
-                "height": "4"
-            }
-        ]
-    }
-]
+[{"id":1,"nom":"romu","email":"dfd@gmail.com","password":"1234","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"85","age":"85","height":""}]},{"id":2,"nom":"romuee","email":"moisantr.dromuald@gmail.com","password":"z","testDone":false,"nbEtape":0,"info":[]},{"id":3,"nom":"ald","email":"moisaqdqn.dromuald@gmail.com","password":"2","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"6","age":"","height":"15"}]}]
