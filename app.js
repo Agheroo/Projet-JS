@@ -131,7 +131,14 @@ app.post("/logout", (req, res) => {
 
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
+
+  if(utilisateurs[req.session.idUtilisateur-1]["testDone"] == true)
+  {
+    data.remake_test(req.session.idUtilisateur-1);
+  }
+  
   let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
+  console.log(utilisateur);
   res.render("pages/test", { utilisateur: utilisateur });
 });
 app.post("/test", async (req, res) => {
