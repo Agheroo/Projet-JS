@@ -31,6 +31,7 @@
 
                 <div id = "login-wrapper">
                     <h1>Étape <%=utilisateur.nbEtape +1%></h1>
+                    <div id= "welcome-line"></div>
                     <%if(utilisateur.nbEtape == 0){%>
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "sex">Sexe (biologique)</label>
@@ -63,24 +64,32 @@
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "diastolic">Pression diastolique (min)</label>
                             <div class = "row-input">
-                                <input id = "diastolic" type = "number" name = "diastolic" placeholder="Exemple : 80" required>
+                                <input id = "diastolic" type = "number" name = "diastolic" placeholder="Exemple : 78" required>
                             </div>
                             <label for = "systolic">Pression systolique (min)</label>
                             <div class = "row-input">
-                                <input id = "systolic" type = "number" name = "systolic" placeholder="Exemple : 80" required>
+                                <input id = "systolic" type = "number" name = "systolic" placeholder="Exemple : 130" required>
                             </div>
-                            <label for = "grip">Force de serrage (N)</label>
+                            <label for = "grip">Force de serrage (kg)</label>
                             <div class = "row-input">
-                                <input id = "grip" type = "number" name = "grip" placeholder="Exemple : 80" required>
+                                <input id = "grip" type = "number" name = "grip" placeholder="Exemple : 36" required>
                             </div>
                             <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
                         </form>
                     <%}%>
                     <%if(utilisateur.nbEtape == 2){%>
+                        <br>
+                        <h2 class = "exercise-desc" style = "color:var(--highlight-yellow);">EXERCICE</h2>
+                        <h2 class = "exercise-desc">Placez-vous <span class = "highlight-blue">assis sur le sol </span>(avec un tapis ou une serviette) et <span class = "highlight-yellow">penchez-vous</span> pour rapprocher vos mains de vos pieds en gardant vos jambes le plus tendu possibles</h2>
+                        
+                        <img class = "exercise-img" src = "img/exo1.png">
+                        
+                        <h2 class = "exercise-desc"><span class = "highlight-yellow">Mesurez</span> ensuite la <span class = "highlight-blue">distance</span> entre vos mains et vos pieds</h2>
+                        <h2 class = "exercise-quicknote">Rappel : Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "sit-bend">Votre résultat (cm)</label>
                             <div class = "row-input">
-                                <input id = "sit-bend" type = "number" name = "sit-bend" placeholder="Exemple : 80" required>
+                                <input id = "sit-bend" type = "number" name = "sit-bend" placeholder="Exemple : 16" required>
                             </div>
                             <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
                         </form>
@@ -89,7 +98,7 @@
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "sit-ups">Votre résultat</label>
                             <div class = "row-input">
-                                <input id = "sit-ups" type = "number" name = "sit-ups" placeholder="Exemple : 80" required>
+                                <input id = "sit-ups" type = "number" name = "sit-ups" placeholder="Exemple : 41" required>
                             </div>
                             <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit">Continuer</button>
                         </form>
@@ -98,8 +107,9 @@
                         <form id = "login-form" method = "post" action = "/test">
                             <label for = "broad-jump">Votre résultat (cm)</label>
                             <div class = "row-input">
-                                <input id = "broad-jump" type = "number" name = "broad-jump" placeholder="Exemple : 80" required>
+                                <input id = "broad-jump" type = "number" name = "broad-jump" placeholder="Exemple : 190" required>
                             </div>
+                            <button class = "button-yellow" onclick = "checkIfCompleted()" type = "submit" href = "/profile">Terminer</button>
                         </form>
                     <%}%>
                 </div>
