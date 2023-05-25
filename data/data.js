@@ -14,6 +14,22 @@ const data_public = {
 
   get_all_users: () => read_database_file(),
 
+  get_one_user: id => {
+    let users;
+
+    // lis les utilisateurs et renvoie faux  s'il n'y arrive pas
+    try {
+      users = read_database_file();
+    } catch {
+      console.error("Couldn't read from database");
+      return false;
+    }
+    //edit user
+
+    return users[id];
+
+  },
+
   add_user: user => {
     let users;
 
