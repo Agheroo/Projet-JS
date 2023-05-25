@@ -53,7 +53,6 @@ app.set("views", path.join(__dirname, "views"));
 
 
 app.get("/", (req, res) => {
-  console.log(utilisateurs);
   utilisateurs = data.get_all_users();
   const { utilisateur } = res.locals;
   res.render("pages/index", { utilisateur });
@@ -106,7 +105,7 @@ app.post("/register", async (req, res) => {
         password,
         testDone: false,
         nbEtape: 0,
-        info: [],
+        info: {},
       };
       data.add_user(nouvelUtilisateur);
       utilisateurs = data.get_all_users();
@@ -132,31 +131,29 @@ app.post("/logout", (req, res) => {
 
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
-  const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
+  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
   res.render("pages/test", { utilisateur: utilisateur });
 });
 app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];
+  console.log("test2");
   data.edit_user(tab_info);
+
   res.redirect("/test");
 });
 
 app.get("/profile", (req, res) => {
   const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
   res.render("pages/profile", { utilisateur: utilisateur });
 
 
 });
 app.get("/results", (req, res) => {
   const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
   res.render("pages/results", { utilisateur: utilisateur });
 });
 app.get("/goals", (req, res) => {
   const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
   res.render("pages/goals", { utilisateur: utilisateur });
 });
 
@@ -166,12 +163,10 @@ app.get("/goals", (req, res) => {
 //  Work in progress (bonus if we can do it)
 app.get("/informations", (req, res) => {
   const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
   res.render("pages/informations", { utilisateur: utilisateur });
 });
 app.get("/contact", (req, res) => {
   const { utilisateur } = res.locals;
-  utilisateurs = data.get_all_users();
   res.render("pages/contact", { utilisateur: utilisateur });
 });
 
