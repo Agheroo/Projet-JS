@@ -37,11 +37,11 @@
                             <label for = "sex">Sexe (biologique)</label>
                             <div class = "row-input" style = "justify-content: space-evenly;">
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <input class = "radio" type="radio" id="male" name="sex" value="0" required>
+                                    <input class = "radio" type="radio" id="male" name="sex" value="1" required>
                                     <label class = radio for = "male">M</label>
                                 </div>
                                 <div style = "background:var(--main-bg-color-bis);">
-                                    <input class = "radio" type="radio" id="female" name="sex" value="1" required>
+                                    <input class = "radio" type="radio" id="female" name="sex" value="0" required>
                                     <label class = radio for = "female">F</label>
                                 </div>
                             </div>
@@ -86,9 +86,9 @@
                         <h2 class = "exercise-desc"><span class = "highlight-yellow">Mesurez</span> ensuite la <span class = "highlight-blue">distance</span> entre vos mains et vos pieds</h2>
                         <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
-                            <label for = "sit-bend">Votre résultat (cm)</label>
+                            <label for = "sitbend">Votre résultat (cm)</label>
                             <div class = "row-input">
-                                <input id = "sit-bend" type = "number" name = "sit-bend" placeholder="Exemple : 16" required>
+                                <input id = "sit-bend" type = "number" name = "sitbend" placeholder="Exemple : 16" required>
                             </div>
                             <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
@@ -102,9 +102,9 @@
                         <h2 class = "exercise-desc"><span class = "highlight-yellow">Comptez</span> votre nombre de <span class = "highlight-blue">crunch fait</span> et <span class = "highlight-yellow">arrêtez</span> quand vous ne vous sentez <span class = "highlight-blue">plus capable</span></h2>
                         <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
-                            <label for = "sit-ups">Votre résultat</label>
+                            <label for = "situps">Votre résultat</label>
                             <div class = "row-input">
-                                <input id = "sit-ups" type = "number" name = "sit-ups" placeholder="Exemple : 41" required>
+                                <input id = "sit-ups" type = "number" name = "situps" placeholder="Exemple : 41" required>
                             </div>
                             <button class = "button-yellow" type = "submit">Continuer</button>
                         </form>
@@ -117,9 +117,9 @@
                         <h2 class = "exercise-desc"><span class = "highlight-yellow">Mesurez </span> la <span class = "highlight-blue">distance</span> parcourue entre votre point de départ et celui d'arrivé</h2>
                         <h2 class = "exercise-quicknote">Rappel: Échauffez-vous bien avant de commencer (prenez soin de vous !)</h2>
                         <form id = "login-form" method = "post" action = "/test">
-                            <label for = "broad-jump">Votre résultat (cm)</label>
+                            <label for = "broadjump">Votre résultat (cm)</label>
                             <div class = "row-input">
-                                <input id = "broad-jump" type = "number" name = "broad-jump" placeholder="Exemple : 190" required>
+                                <input id = "broad-jump" type = "number" name = "broadjump" placeholder="Exemple : 190" required>
                             </div>
                             <button class = "button-yellow" type = "submit" href = "/profile">Terminer</button>
                         </form>

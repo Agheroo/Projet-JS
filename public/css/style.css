@@ -487,6 +487,31 @@ label{
     border-radius: 1vh;
 }
 
+
+/**************************************************************************************************/
+/* GOALS */
+table, table *{
+    background:var(--main-bg-color-bis);
+}
+table{
+    width:90%;
+    padding:0;
+    border:solid 1px black;
+    border-collapse: collapse;
+}
+td{
+    color:var(--light-text-color);
+    padding: 1em 0.7em;
+    text-align: center;
+}
+tr{
+    border:solid 1px black;
+}
+th{
+    color:var(--bg-dark-color);
+    padding:1em;
+}
+
 @media only screen and (max-width: 1000px){
     nav{
         position:sticky;
