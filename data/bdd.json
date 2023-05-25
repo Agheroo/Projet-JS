@@ -1,1 +1,18 @@
-[{"id":1,"nom":"romu","email":"dfd@gmail.com","password":"1234","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"4","age":"5","height":"4"}]},{"id":2,"nom":"romu","email":"romudestiny@gmail.com.bo","password":"UZY+uz\"rH+B\"5;+","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"","age":"12","height":""}]},{"id":3,"nom":"sdf","email":"moddisan@gmail.com","password":"1","testDone":false,"nbEtape":0,"info":[{"sex":"1","weight":"5","age":"","height":""}]},{"id":4,"nom":"sdf","email":"romdu@g.c","password":"3","testDone":false,"nbEtape":0,"info":[]},{"id":5,"nom":"romu","email":"moisan.dromuald@gmail.com","password":"UZY+uz\"rH+B\"5;+","testDone":false,"nbEtape":0,"info":[{"sex":"0","weight":"85","age":"","height":""}]},{"id":6,"nom":"romu","email":"reeomudestiny@gmail.com.bo","password":"3","testDone":false,"nbEtape":0,"info":[{"weight":"58","age":"","height":""}]}]
+[
+    {
+        "id": 1,
+        "nom": "romu",
+        "email": "dfd@gmail.com",
+        "password": "1234",
+        "testDone": false,
+        "nbEtape": 0,
+        "info": [
+            {
+                "sex": "0",
+                "weight": "4",
+                "age": "5",
+                "height": "4"
+            }
+        ]
+    }
+]

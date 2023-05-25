@@ -14,11 +14,11 @@
             <form id = "login-form" method = "post" action = "/login">
                 <label for = "email">Email</label>
                 <div class = "row-input">
-                    <input id = "email" type = "email" name = "email">
+                    <input id = "email" type = "email" name = "email" autocomplete="email">
                 </div>                
                 <label for = "password">Mot de passe</label>
                 <div class = "row-input">
-                    <input id = "password" type = "password" name = "password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
+                    <input id = "password" type = "password" name = "password" autocomplete="current-password"><img id = "eye" class = "button-yellow" src = "img/closed-eye.png" onclick = "showWrittenPassword()">
                 </div>
                 <button class = "button-yellow" onclick = "checkUserConnect()" type = "submit">Se connecter</button> <!-- Function to link with backend -->
             </form>
