@@ -7,18 +7,6 @@
 
 
 <body>
-    <%if(utilisateur){%>
-        <%if(utilisateur.testDone){%>
-            <%-include("../partials/navbar-tested.ejs"); %>
-        <%}%>
-        <%if(!utilisateur.testDone){%>
-            <%-include("../partials/navbar-nottested.ejs"); %>
-        <%}%>
-        
-    <%}%>
-    <%if(!utilisateur) {%>
-        <%-include("../partials/navbar.ejs"); %>
-    <%}%>
     <div id = "register-main" class = "wrapper">
         <h1>Inscription</h1>
         <div id = "login-wrapper">
