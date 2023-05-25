@@ -13,11 +13,15 @@
     --highlight-yellow:#e9d043;
     --highlight-blue:#25ceec;;
     --highlight-orange:#d46318;
+    --highlight-green:#69d340;
     --button-color:#dab825;
     --button-color-black:#070707;
 }
 
 /* NAV & GLOBAL */
+body{
+    height:100%;
+}
 *{
     padding:0;
     margin:0;
@@ -227,6 +231,9 @@ h1{
 }
 .highlight-blue{
     color:var(--highlight-blue);
+}
+.highlight-green{
+    color:var(--highlight-green);
 }
 
 
