@@ -162,7 +162,7 @@ app.get("/results", (req, res) => {
   res.render("pages/results", { utilisateur: utilisateur });
 });
 app.get("/goals", (req, res) => {
-  utilisateurs = data.get_all_users();
+  let utilisateur = data.get_one_user(res.locals.utilisateur.id - 1);
   res.render("pages/goals", { utilisateur: utilisateur });
 });
 
