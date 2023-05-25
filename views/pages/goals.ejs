@@ -10,7 +10,7 @@
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
             <h1>Objectifs</h1>
-            <h1>Désolé, la page est en construction !</h1>
+            <h2 style = "color: var(--light-text-color); text-align: center;">Désolé, la page est en construction !</h2>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>

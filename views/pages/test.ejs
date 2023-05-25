@@ -9,7 +9,8 @@
     <%if(utilisateur){%>
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
-            <h1>Évalutaion</h1>
+            <h1>Évaluation</h1>
+            <h2 style = "color:var(--light-text-color); text-align: center;">Consultez votre profil pour voir vos résultats !</h2>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
