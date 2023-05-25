@@ -37,7 +37,7 @@ const data_public = {
   },
 
   edit_user: user => {
-    
+
     let users;
 
     // lis les utilisateurs et renvoie faux  s'il n'y arrive pas
@@ -49,9 +49,10 @@ const data_public = {
     }
     //edit user
 
-    
-    users[user[0]-1]["info"][0] = user[1];
-    
+
+    users[user[0] - 1]["info"][0] = user[1];
+    users[user[0] - 1]["nbEtape"] += 1;
+
     // écris les utilisateurs et renvoie faux s'il n'y arrive pas
     try {
       write_database_file(users);

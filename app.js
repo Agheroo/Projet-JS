@@ -136,12 +136,6 @@ app.get("/test", (req, res) => { // Page qui récupère les informations pour un
 });
 app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];
-  for (let propriete in req.body) {
-    if (req.body[propriete] == "") {
-      console.log("Remplir les champs");
-      res.redirect("views/pages/test");
-    }
-  }
   data.edit_user(tab_info);
   res.redirect("/test");
 });
