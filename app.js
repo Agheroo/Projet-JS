@@ -173,7 +173,7 @@ app.get("/informations", (req, res) => {
   res.render("pages/informations", { utilisateur: utilisateur });
 });
 app.get("/contact", (req, res) => {
-  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
+  const {utilisateur} = res.locals;
   res.render("pages/contact", { utilisateur: utilisateur });
 });
 

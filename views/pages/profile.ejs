@@ -10,13 +10,16 @@
         <%if(utilisateur.testDone){%>
             <%-include("../partials/navbar-tested.ejs"); %>
             <h1>Résumé</h1>
-            <h2 style = "text-align:center; color: var(--highlight-yellow);">Votre note</h2>
-            <% if(utilisateur.note == 'a'){ %><h2 style = "text-align:center; color:var(--highlight-green);">A</h2><%}%>
-            <% if(utilisateur.note == 'b'){ %><h2 style = "text-align:center; color:var(--highlight-blue);">B</h2><%}%>
-            <% if(utilisateur.note == 'c'){ %><h2 style = "text-align:center; color:var(--highlight-yellow);">C</h2><%}%>
-            <% if(utilisateur.note == 'd'){ %><h2 style = "text-align:center; color:var(--highlight-orange);">D</h2><%}%>
-            <br><br>
-            <h2 style = "text-align:center; color: var(--light-text-color);">N'hésitez pas à consulter vos objectifs pour obtenir un meilleur score !</h2>
+            <div class = "wrapper">
+                <h2 style = "text-align:center; color: var(--highlight-yellow);">Votre note</h2>
+                <% if(utilisateur.note == 'a'){ %><h2 style = "text-align:center; color:var(--highlight-green);">A</h2><%}%>
+                <% if(utilisateur.note == 'b'){ %><h2 style = "text-align:center; color:var(--highlight-blue);">B</h2><%}%>
+                <% if(utilisateur.note == 'c'){ %><h2 style = "text-align:center; color:var(--highlight-yellow);">C</h2><%}%>
+                <% if(utilisateur.note == 'd'){ %><h2 style = "text-align:center; color:var(--highlight-orange);">D</h2><%}%>
+                <br><br>
+                <h2 style = "text-align:center; color: var(--light-text-color);">N'hésitez pas à consulter vos objectifs pour obtenir un meilleur score !</h2>
+                <a href = "/goals" class = "button-yellow">Objectifs</a>
+            </div>
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
