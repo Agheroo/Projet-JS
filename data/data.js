@@ -69,8 +69,8 @@ const data_public = {
     for (key in user[1]) {
       users[user[0] - 1].info[key] = user[1][key];
       if (key == "weight") {
-        let IMC = (users[user[0] - 1]["weight"]) / (users[user[0] - 1]["height"] / users[user[0] - 1]["height"]);
-        let IMG = 1.2 * IMC + (0.23 * users[user[0] - 1]["age"]) - (10.8 * users[user[0] - 1]["sex"]) - 5.4 
+        let IMC = parseInt(users[user[0] - 1]["weight"]) / (parseInt(users[user[0] - 1]["height"]) * parseInt(users[user[0] - 1]["height"]));
+        let IMG = 1.2 * IMC + 0.23 * parseInt(users[user[0] - 1]["age"]) - 10.8 * parseInt(users[user[0] - 1]["sex"]) - 5.4 
         users[user[0] - 1].info["IMG"] = IMG;;
       }
     }
