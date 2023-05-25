@@ -7,10 +7,6 @@ const bcrypt = require("bcrypt");
 const data = require("./data/data");
 let utilisateurs = data.get_all_users();
 
-
-
-
-
 require("dotenv").config();
 
 const app = express();
@@ -68,7 +64,10 @@ app.post("/login", async (req, res) => {
     const utilisateur = utilisateurs
       .find((utilisateur) => utilisateur.email === email);
     if (utilisateur) {
-      const validPassWord = password === utilisateur.password; //attention triple egale
+      const validPassWord = await bcrypt.compare(
+        password,
+        utilisateur.password
+      ); //password === utilisateur.password; //attention triple egale
       if (validPassWord) {
         req.session.idUtilisateur = utilisateur.id;
         if (utilisateur.testDone == true) {
@@ -98,11 +97,14 @@ app.post("/register", async (req, res) => {
       (utilisateur) => utilisateur.email === email
     );
     if (!utilisateur) {
+      const salt = await bcrypt.genSalt(10);
+      const passwordToSave = await bcrypt.hash(password, salt);
+
       let nouvelUtilisateur = {
         id: utilisateurs.length + 1,
         nom,
         email,
-        password,
+        password:passwordToSave,
         testDone: false,
         nbEtape: 0,
         info: {},
@@ -175,7 +177,7 @@ app.get("/informations", (req, res) => {
   res.render("pages/informations", { utilisateur: utilisateur });
 });
 app.get("/contact", (req, res) => {
-  const {utilisateur} = res.locals;
+  const { utilisateur } = res.locals;
   res.render("pages/contact", { utilisateur: utilisateur });
 });
 
