@@ -67,15 +67,45 @@ const data_public = {
 
     // Ajout des clés dans info
     for (key in user[1]) {
-      users[user[0]-1].info[key] = user[1][key]
+      users[user[0] - 1].info[key] = user[1][key]
     }
     // Ajout d'une étpae à chaque fois
     users[user[0] - 1]["nbEtape"] += 1;
-    
-    if(users[user[0] - 1]["nbEtape"] == 5)
-    {
+
+    if (users[user[0] - 1]["nbEtape"] == 5) {
       users[user[0] - 1]["testDone"] = true;
     }
+
+    // écris les utilisateurs et renvoie faux s'il n'y arrive pas
+    try {
+      write_database_file(users);
+    } catch {
+      console.error("Couldn't write in database");
+      return false;
+    }
+
+    return true;
+
+  },
+
+  remake_test: user => {
+
+    let users;
+
+    // lis les utilisateurs et renvoie faux  s'il n'y arrive pas
+    try {
+      users = read_database_file();
+    } catch {
+      console.error("Couldn't read from database");
+      return false;
+    }
+    //edit user
+
+  
+    // Remise à zero du nombre d'étape et du test
+    users[user]["nbEtape"] = 0;
+    users[user]["testDone"] = false;
+
 
     // écris les utilisateurs et renvoie faux s'il n'y arrive pas
     try {
