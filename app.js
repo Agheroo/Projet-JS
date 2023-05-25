@@ -131,7 +131,6 @@ app.post("/logout", (req, res) => {
 
 // When user is connecte
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
-
   if(utilisateurs[req.session.idUtilisateur-1]["testDone"] == true)
   {
     data.remake_test(req.session.idUtilisateur-1);
@@ -144,8 +143,12 @@ app.get("/test", (req, res) => { // Page qui récupère les informations pour un
 app.post("/test", async (req, res) => {
   let tab_info = [req.session.idUtilisateur, req.body];
   data.edit_user(tab_info);
-
-  res.redirect("/test");
+  if(data.get_one_user(res.locals.utilisateur.id-1).nbEtape < 5){
+    res.redirect("/test");
+  }
+  else{
+    res.redirect("/profile");
+  }
 });
 
 app.get("/profile", (req, res) => {
@@ -170,7 +173,7 @@ app.get("/informations", (req, res) => {
   res.render("pages/informations", { utilisateur: utilisateur });
 });
 app.get("/contact", (req, res) => {
-  const {utilisateur} = res.locals;
+  let utilisateur  = data.get_one_user(res.locals.utilisateur.id-1);
   res.render("pages/contact", { utilisateur: utilisateur });
 });
 
