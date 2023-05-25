@@ -27,7 +27,7 @@ autres Express ou MongoDB).
 | Membres           |     Tâches        | 
 | :-:               | :-:               |              
 | Renan Reaux       |   Frontend / Orga |  
-| Thibaud Heub      |       Backend     |  
+| Thibaud Heub      |       IA     |  
 | Romuald Moisan    | Backend / Rapport |   
 
 # Mode d'emploi
