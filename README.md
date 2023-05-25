@@ -1,8 +1,5 @@
 # AI SportsLab 
 
-# Lancement de l'appli
-Après avoir téléchargé (ou pull) tous les fichiers de la branche main, effectuer **node app** dans votre console
-
 ## Résumé
 
 L'indutstrie du fitness est très demandé mais très peu de conseils fiable de manière gratuite sont proposés.
