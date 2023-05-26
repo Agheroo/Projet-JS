@@ -72,7 +72,14 @@ const data_public = {
         let IMC = 10000 * parseInt(users[user[0] - 1]["info"]["weight"]) / (parseInt(users[user[0] - 1]["info"]["height"]) * parseInt(users[user[0] - 1]["info"]["height"]));
         let IMG = 1.2 * IMC  + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
         users[user[0] - 1].info["IMG"] = IMG;
-        users[user[0] - 1].note = "a";
+        if(IMC < 24 && IMC > 20)
+          users[user[0] - 1].note = "a";
+        if((IMC < 29 && IMC > 24) || (IMC <18 && IMC > 15))
+          users[user[0] - 1].note = "b";
+        if(IMC < 37 && IMC > 29)
+          users[user[0] - 1].note = "c";
+        if((IMC > 37) || (IMC <13))
+          users[user[0] - 1].note = "d";
       }
     }
 
