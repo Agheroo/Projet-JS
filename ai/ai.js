@@ -44,9 +44,9 @@ async function runTF() {
     const nmLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
 
     const model = tf.sequential();
-    model.add(tf.layers.dense({ inputShape: [inputs[0].length], units: 128, activation: "softplus", useBias: true }));
+    model.add(tf.layers.dense({ inputShape: [inputs[0].length], units: 128, activation: "relu", useBias: true }));
     model.add(tf.layers.dense({ units: labels[0].length, activation: "softmax", useBias: true }));
-    model.compile({ loss: "meanSquaredError", optimizer: "adam" });
+    model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
 }
 
 runTF();
