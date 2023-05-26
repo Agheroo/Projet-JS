@@ -332,7 +332,11 @@
                         </tbody>
                     <%}%>
                 </table>
+                <h2 style = "color:var(--light-text-color);font-size:1.5em;text-align:center;">N'hésitez pas à <span class = "highlight-yellow">refaire une nouvelle évaluation</span> lorsque vous vous serez entrainé pour obtenir de <span class = "highlight-green">meilleurs résultats</span></h2>
+                <a href = "/test" class = "button-dark">Nouvelle évaluation</a>
             </div>
+
+            
         <%}%>
         <%if(!utilisateur.testDone){%>
             <%-include("../partials/navbar-nottested.ejs"); %>
