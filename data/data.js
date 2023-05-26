@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const { get } = require("http");
+const {testNote} = require("../ai/ai");
 
 const DATABASE = __dirname + "/bdd.json";
 const get_last_index = users => Math.max(...users.map(user => user.id), 0);
@@ -70,16 +71,8 @@ const data_public = {
       users[user[0] - 1].info[key] = user[1][key];
       if (key == "height") {
         let IMC = 10000 * parseInt(users[user[0] - 1]["info"]["weight"]) / (parseInt(users[user[0] - 1]["info"]["height"]) * parseInt(users[user[0] - 1]["info"]["height"]));
-        let IMG = 1.2 * IMC  + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
+        let IMG = 1.2 * IMC + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
         users[user[0] - 1].info["IMG"] = IMG;
-        if(IMC < 24 && IMC > 20)
-          users[user[0] - 1].note = "a";
-        if((IMC < 29 && IMC > 24) || (IMC <18 && IMC > 15))
-          users[user[0] - 1].note = "b";
-        if(IMC < 37 && IMC > 29)
-          users[user[0] - 1].note = "c";
-        if((IMC > 37) || (IMC <13))
-          users[user[0] - 1].note = "d";
       }
     }
 
@@ -89,6 +82,20 @@ const data_public = {
 
     if (users[user[0] - 1]["nbEtape"] == 5) {
       users[user[0] - 1]["testDone"] = true;
+      users[user[0] - 1].note = testNote([
+        parseFloat(users[user[0] - 1].info.age),
+        parseInt(users[user[0] - 1].info.sex),
+        1 - parseInt(users[user[0] - 1].info.sex),
+        parseFloat(users[user[0] - 1].info.height),
+        parseFloat(users[user[0] - 1].info.weight),
+        parseFloat(users[user[0] - 1].info.IMG),
+        parseFloat(users[user[0] - 1].info.diastolic),
+        parseFloat(users[user[0] - 1].info.systolic),
+        parseFloat(users[user[0] - 1].info.grip),
+        parseFloat(users[user[0] - 1].info.sitbend),
+        parseFloat(users[user[0] - 1].info.situps),
+        parseFloat(users[user[0] - 1].info.broadjump)
+      ]);
     }
 
 
