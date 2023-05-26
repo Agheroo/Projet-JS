@@ -107,6 +107,7 @@ app.post("/register", async (req, res) => {
         password:passwordToSave,
         testDone: false,
         nbEtape: 0,
+        note:"b",
         info: {},
       };
       data.add_user(nouvelUtilisateur);
@@ -131,11 +132,10 @@ app.post("/logout", (req, res) => {
   });
 });
 
-// When user is connecte
+// When user is connected
 app.get("/test", (req, res) => { // Page qui récupère les informations pour une inscription
 
   if (utilisateurs[req.session.idUtilisateur - 1]["testDone"] == true) {
-    console.log("romu");
     data.remake_test(req.session.idUtilisateur - 1);
   }
 
@@ -151,6 +151,7 @@ app.post("/test", async (req, res) => {
     res.redirect("/test");
   }
   else {
+
     res.redirect("/profile");
   }
 });
