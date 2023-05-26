@@ -19,43 +19,318 @@
                             <th>Objectifs à atteindre</th>
                        </tr> 
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Poids</td>
-                            <td><%=utilisateur.info.weight%></td>
-                            <td style = "color:var(--highlight-blue);">75</td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Diastole</td>
-                            <td><%=utilisateur.info.diastolic%></td>
-                            <td style = "color:var(--highlight-green);"><%=utilisateur.info.diastolic%></td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Systole</td>
-                            <td><%=utilisateur.info.systolic%></td>
-                            <td style = "color:var(--highlight-green);"><%=utilisateur.info.systolic%></td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Attrapage</td>
-                            <td><%=utilisateur.info.grip%></td>
-                            <td style = "color:var(--highlight-blue);">38</td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Souplesse</td>
-                            <td><%=utilisateur.info.sitbend%></td>
-                            <td style = "color:var(--highlight-yellow);">12</td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Crunches</td>
-                            <td><%=utilisateur.info.situps%></td>
-                            <td style = "color:var(--highlight-yellow);">49</td>
-                        </tr>
-                        <tr>
-                            <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Saut</td>
-                            <td><%=utilisateur.info.broadjump%></td>
-                            <td style = "color:var(--highlight-green);">190</td>
-                        </tr>
-                    </tbody>
+                    <%if(utilisateur.note == "d"){%>
+                        <tbody>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">IMC</td>
+                                <% if(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000< 19 && utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000 > 24){%>
+                                    <td style = "color:var(--highlight-green);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}%>
+                                <td>19 - 24</td>
+    
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Diastolique</td>
+                                <% if(utilisateur.info.diastolic <= 82 && utilisateur.info.diastolic >= 73){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.diastolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.diastolic%></td>
+                                <%}%>
+                                <td>72.4 - 83.5</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Systolique</td>
+                                <% if(utilisateur.info.systolic <= 131.4 && utilisateur.info.systolic >= 118.6){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.systolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.systolic%></td>
+                                <%}%>
+                                <td>118.6 - 131.4</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Attrapage</td>
+                                <% if(utilisateur.info.sex == 1){%>
+                                    <%if(utilisateur.info.grip > 38){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>38</td>
+                                <%} else{%>
+                                    <%if(utilisateur.info.grip > 27){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>27</td>
+                                <%}%>
+                                
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Souplesse</td>
+                                <%if(utilisateur.info.sitbend > 17.9){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.sitbend%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.sitbend%></td>
+                                <%}%>
+                                <td>17.9</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Crunches</td>
+                                <%if(utilisateur.info.situps > 40){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.situps%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.situps%></td>
+                                <%}%>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Saut</td>
+                                <%if(utilisateur.info.broadjump <= 176.7){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.broadjump%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.broadjump%></td>
+                                <%}%>
+                                <td>176.7</td>
+                            </tr>
+                        </tbody>
+                    <%}%>
+                    <%if(utilisateur.note == "c"){%>
+                        <tbody>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">IMC</td>
+                                <% if(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000< 19 && utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000 > 24){%>
+                                    <td style = "color:var(--highlight-green);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}%>
+                                <td>19 - 24</td>
+    
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Diastolique</td>
+                                <% if(utilisateur.info.diastolic <= 80 && utilisateur.info.diastolic >= 75){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.diastolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.diastolic%></td>
+                                <%}%>
+                                <td>75 - 80</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Systolique</td>
+                                <% if(utilisateur.info.systolic <= 130 && utilisateur.info.systolic >= 120){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.systolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.systolic%></td>
+                                <%}%>
+                                <td>120 - 130</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Attrapage</td>
+                                <% if(utilisateur.info.sex == 1){%>
+                                    <%if(utilisateur.info.grip > 40){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>40</td>
+                                <%} else{%>
+                                    <%if(utilisateur.info.grip > 30){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>30</td>
+                                <%}%>
+                                
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Souplesse</td>
+                                <%if(utilisateur.info.sitbend >= 15){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.sitbend%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.sitbend%></td>
+                                <%}%>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Crunches</td>
+                                <%if(utilisateur.info.situps > 45){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.situps%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.situps%></td>
+                                <%}%>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Saut</td>
+                                <%if(utilisateur.info.broadjump <= 190){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.broadjump%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.broadjump%></td>
+                                <%}%>
+                                <td>190</td>
+                            </tr>
+                        </tbody>
+                    <%}%>
+                    <%if(utilisateur.note == "b"){%>
+                        <tbody>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">IMC</td>
+                                <% if(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000< 20 && utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000 > 24){%>
+                                    <td style = "color:var(--highlight-green);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}%>
+                                <td>20 - 24</td>
+
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Diastolique</td>
+                                <% if(utilisateur.info.diastolic <= 80 && utilisateur.info.diastolic >= 75){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.diastolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.diastolic%></td>
+                                <%}%>
+                                <td>75 - 80</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Systolique</td>
+                                <% if(utilisateur.info.systolic <= 128 && utilisateur.info.systolic >= 122){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.systolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.systolic%></td>
+                                <%}%>
+                                <td>122 - 128</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Attrapage</td>
+                                <% if(utilisateur.info.sex == 1){%>
+                                    <%if(utilisateur.info.grip > 47){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>47</td>
+                                <%} else{%>
+                                    <%if(utilisateur.info.grip > 32){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <td>32</td>
+                                    <%}%>
+                                <%}%>
+                                
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Souplesse</td>
+                                <%if(utilisateur.info.sitbend >= 12.6){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.sitbend%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.sitbend%></td>
+                                <%}%>
+                                <td>12.6</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Crunches</td>
+                                <%if(utilisateur.info.situps > 52){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.situps%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.situps%></td>
+                                <%}%>
+                                <td>52</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Saut</td>
+                                <%if(utilisateur.info.broadjump <= 195){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.broadjump%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.broadjump%></td>
+                                <%}%>
+                                <td>195</td>
+                            </tr>
+                        </tbody>
+                    <%}%>
+                    <%if(utilisateur.note == "a"){%>
+                        <tbody>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">IMC</td>
+                                <% if(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000< 19.5 && utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000 > 23){%>
+                                    <td style = "color:var(--highlight-green);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=Math.round(utilisateur.info.weight / (utilisateur.info.height*utilisateur.info.height) * 10000)%></td>
+                                <%}%>
+                                <td>19.5 - 23</td>
+
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Diastolique</td>
+                                <% if(utilisateur.info.diastolic <= 79 && utilisateur.info.diastolic >= 77){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.diastolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.diastolic%></td>
+                                <%}%>
+                                <td>77 - 79</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Systolique</td>
+                                <% if(utilisateur.info.systolic <= 128 && utilisateur.info.systolic >= 122){%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.systolic%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.systolic%></td>
+                                <%}%>
+                                <td>122 - 124</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Attrapage</td>
+                                <% if(utilisateur.info.sex == 1){%>
+                                    <%if(utilisateur.info.grip > 52){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <%}%>
+                                    <td>52</td>
+                                <%} else{%>
+                                    <%if(utilisateur.info.grip > 36){%>
+                                        <td style = "color:var(--highlight-green);"><%=utilisateur.info.grip%></td>
+                                    <%}else{%>
+                                        <td style = "color:var(--highlight-orange);"><%=utilisateur.info.grip%></td>
+                                    <td>36</td>
+                                    <%}%>
+                                <%}%>
+                                
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Souplesse</td>
+                                <%if(utilisateur.info.sitbend >= 11.5){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.sitbend%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.sitbend%></td>
+                                <%}%>
+                                <td>11.5</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Crunches</td>
+                                <%if(utilisateur.info.situps > 58){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.situps%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.situps%></td>
+                                <%}%>
+                                <td>58</td>
+                            </tr>
+                            <tr>
+                                <td style = "border-right:solid 1px black; color:var(--dark-text-color)">Saut</td>
+                                <%if(utilisateur.info.broadjump <= 198){%>
+                                    <td style = "color:var(--highlight-orange);"><%=utilisateur.info.broadjump%></td>
+                                <%}else{%>
+                                    <td style = "color:var(--highlight-green);"><%=utilisateur.info.broadjump%></td>
+                                <%}%>
+                                <td>198</td>
+                            </tr>
+                        </tbody>
+                    <%}%>
                 </table>
             </div>
         <%}%>

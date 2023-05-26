@@ -72,6 +72,7 @@ const data_public = {
         let IMC = 10000 * parseInt(users[user[0] - 1]["info"]["weight"]) / (parseInt(users[user[0] - 1]["info"]["height"]) * parseInt(users[user[0] - 1]["info"]["height"]));
         let IMG = 1.2 * IMC  + 0.23 * parseInt(users[user[0] - 1]["info"]["age"]) - 10.8 * parseInt(users[user[0] - 1]["info"]["sex"]) - 5.4;
         users[user[0] - 1].info["IMG"] = IMG;
+        users[user[0] - 1].note = "a";
       }
     }
 
