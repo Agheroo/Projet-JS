@@ -8,7 +8,7 @@ function extractTrainingData(path) {
     rows = csvFile.split("\n");
 
     for (let i = 1; i < rows.length - 1; i++) {
-        let tmp = {x:[], y:[]};
+        let tmp = { x: [], y: [] };
         cols = rows[i].split(",");
         for (let j = 0; j < cols.length; j++) {
             if (j === 1) {
@@ -30,6 +30,8 @@ function extractTrainingData(path) {
 /** Main function */
 async function runTF() {
     const data = extractTrainingData("bodyPerformance.csv");
+    // console.log(data);
+
     const inputs = data.map(obj => obj.x);
     const labels = data.map(obj => obj.y);
     const inputTensor = tf.tensor2d(inputs, [inputs.length, inputs[0].length]);
@@ -40,8 +42,11 @@ async function runTF() {
     const labelMax = labelTensor.max();
     const nmInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
     const nmLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
-    console.log(nmInputs);
-    console.log(nmLabels);
+
+    const model = tf.sequential();
+    model.add(tf.layers.dense({ inputShape: [inputs[0].length], units: 128, activation: "softplus", useBias: true }));
+    model.add(tf.layers.dense({ units: labels[0].length, activation: "softmax", useBias: true }));
+    model.compile({ loss: "meanSquaredError", optimizer: "adam" });
 }
 
 runTF();
